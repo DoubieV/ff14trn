@@ -395,7 +395,7 @@
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="12f45d71-aa9c-4325-8f77-a45121746461" Name="record" Enabled="true">
+      <Folder Id="12f45d71-aa9c-4325-8f77-a45121746461" Name="record" Enabled="false">
         <Folders>
           <Folder Id="a48742df-d844-418e-b3ba-ee9485fe2cf6" ZoneFilterRegularExpression="^无名岛$" Name="count" Enabled="false">
             <Folders />
