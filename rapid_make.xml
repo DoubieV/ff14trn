@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="d6129bb1-812d-4e74-895a-9af4aff0eb37" Name="制作无后摇test" Enabled="true">
+  <ExportedFolder Id="f26707ec-60d9-4775-a4e8-8c19728e830c" Name="制作无后摇test" Enabled="true">
     <Folders>
-      <Folder Id="8797b2fb-d534-46a9-88dc-5ef000ae995b" Name="补状态" Enabled="false">
+      <Folder Id="f56f1c66-d23c-40a5-a07c-9ceb72db12c7" Name="补状态" Enabled="false">
         <Folders>
-          <Folder Id="79233a90-14f8-4050-b877-ac8cad3f751b" Name="嗑药" Enabled="true">
+          <Folder Id="d6da1abe-1ca2-4785-9e2f-9dd565a5e66d" Name="嗑药" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="药没了" Id="0472b4ed-95ff-475e-945e-8420a598b447" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“强化药”状态效果消失了">
+              <Trigger Enabled="true" Name="药没了" Id="2c3012da-ae52-4682-bb21-36cbcafb0d5e" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“强化药”状态效果消失了">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="药" VariableExpression="0" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -16,39 +16,42 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="药有了" Id="ee815893-f92c-4dba-9e00-e550e2a2a9d1" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“强化药”的效果" RefirePeriodExpression="100">
+              <Trigger Enabled="true" Name="药有了" Id="0fdd2807-a21c-4933-85e4-fb630e5001c4" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“强化药”的效果" RefirePeriodExpression="100">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="药" VariableExpression="1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="fc0b12aa-9534-400d-95fe-f282f4b96d1f" TriggerForce="regexp" ActionType="Trigger">
+                  <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="accce92c-5575-42a8-bf48-67547a556ade" TriggerForce="regexp" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="d343932e-fd5e-42ab-a6dd-c4e60b0848b9" Name="食物" Enabled="true">
+          <Folder Id="69d00953-4b10-4e25-b45f-4337ee8864f5" Name="食物" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="食物有了" Id="cb3456f0-ddfc-4270-95f7-62ba9a600efc" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“进食”的效果">
+              <Trigger Enabled="true" Name="食物有了" Id="2a82efee-c43f-4809-9278-8135b4caff88" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“进食”的效果">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="食物" VariableExpression="1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="fc0b12aa-9534-400d-95fe-f282f4b96d1f" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                  <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="accce92c-5575-42a8-bf48-67547a556ade" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="食物没了" Id="fd138784-032d-406b-ab90-76dc23db176b" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“进食”状态效果消失了">
+              <Trigger Enabled="true" Name="食物没了" Id="16154d54-7a51-47c5-ba55-0595557a405b" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“进食”状态效果消失了">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="食物" VariableExpression="0" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -57,13 +60,14 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="bf940589-ec87-4677-bb64-8585689c79e3" Name="耐久" Enabled="true">
+          <Folder Id="d04d275d-ceb7-4104-8b09-40483f04e004" Name="耐久" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="耐久没了" Id="c8b9156a-7f5b-4cc1-abbc-0f4fad6cc764" RegularExpression="的耐久度已降到">
+              <Trigger Enabled="true" Name="耐久没了" Id="087f6f52-af53-42c9-bc70-a03595c01e95" RegularExpression="的耐久度已降到">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="耐久" VariableExpression="0" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -72,21 +76,23 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="耐久有了" Id="5c246bc4-aab6-47c9-a3a7-80726a58fa7f" RegularExpression="修理好了">
+              <Trigger Enabled="true" Name="耐久有了" Id="59b6b4fe-df54-4281-bc41-bee50970f00b" RegularExpression="修理好了">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="耐久" VariableExpression="1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="fc0b12aa-9534-400d-95fe-f282f4b96d1f" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                  <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="accce92c-5575-42a8-bf48-67547a556ade" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="维修" Id="a6022aaf-d1df-402d-9d2b-c10b9a4c9139" RegularExpression="">
+              <Trigger Enabled="true" Name="维修" Id="16d4a820-0166-40da-b7fe-ad7672acb064" RegularExpression="">
                 <Actions>
                   <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="KeyPress" ExecutionDelayExpression="100">
                     <Condition Enabled="true" Grouping="And">
@@ -120,17 +126,18 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Name="补" Id="e04cd7d0-6744-4862-896a-9baebebb1a93" RegularExpression="//补状态">
+          <Trigger Enabled="true" Name="补" Id="d2f3916a-ed29-45fa-97a2-9e49225ff965" RegularExpression="//补状态">
             <Actions>
-              <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="CancelTrigger" TriggerId="d2b440a2-8fb0-410a-87bd-5d9d1bd9c6c2" ActionType="Trigger">
+              <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="CancelTrigger" TriggerId="53f18b93-3077-48d9-a1f1-8a74e0922aac" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="d7e0cce9-ef2c-452e-81c5-34ad848f90e9" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="d26132aa-9862-4689-a45c-4b960ba2e419" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="KeyPress" ExecutionDelayExpression="2000">
@@ -160,7 +167,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${evar:药}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="a6022aaf-d1df-402d-9d2b-c10b9a4c9139" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="16d4a820-0166-40da-b7fe-ad7672acb064" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:耐久}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:耐久}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -168,8 +175,9 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="重启" Id="fc0b12aa-9534-400d-95fe-f282f4b96d1f" RegularExpression="">
+          <Trigger Enabled="true" Name="重启" Id="accce92c-5575-42a8-bf48-67547a556ade" RegularExpression="">
             <Actions>
               <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="KeyPress" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
@@ -189,18 +197,19 @@
               <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="78" KeyPressWindow="最终幻想XIV" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="KeyPress" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="d2b440a2-8fb0-410a-87bd-5d9d1bd9c6c2" TriggerForce="regexp" ActionType="Trigger">
+              <Action OrderNumber="7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="53f18b93-3077-48d9-a1f1-8a74e0922aac" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="b1baf170-e21b-4566-8988-d1e454554fa9" Name="#队列夹" Enabled="true">
+      <Folder Id="2e61f9c6-568e-4ea6-bb08-85202a0dd0b4" Name="#队列夹" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="false" Name="#模板" Id="176859ff-94e9-48ff-be22-7a69ff0e0587" RegularExpression="//队列夹导入">
+          <Trigger Enabled="false" Name="#模板" Id="3cd6fca7-7884-4666-a560-84c531b89f22" RegularExpression="//队列夹导入">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
@@ -214,20 +223,21 @@
               <Action OrderNumber="4" ListVariableOp="Split" ListVariableName="队列收藏" ListVariableExpression=":" ListVariableTarget="制作队列" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="27b75533-bf34-4106-b278-68004ee33df5" TriggerForce="regexp" ActionType="Trigger">
+              <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="4069de70-97df-46d2-90b4-e1853f7c4fdb" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="a9785541-b313-4e41-850b-b9094b59728f" Name="core" Enabled="true">
+      <Folder Id="d6ecaf3f-c518-4952-9c0a-876e6f5a835a" Name="core" Enabled="true">
         <Folders>
-          <Folder Id="ea65f959-0b23-4fc1-9cb9-7a8313e1e49c" Name="队列录入" Enabled="false">
+          <Folder Id="696620cf-f15d-4437-8376-305aa93f929b" Name="队列录入" Enabled="false">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="1录入" Id="0ab9c29d-58f7-4ae6-862a-774282a9e9cf" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;name&gt;[^:]+?)(发动“|的)(?&lt;ac_name&gt;[^:]*?)([”]?)  ⇒ 成功">
+              <Trigger Enabled="true" Name="1录入" Id="a46aa922-b4c4-436d-bd40-9d2f60e1ea84" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;name&gt;[^:]+?)(发动“|的)(?&lt;ac_name&gt;[^:]*?)([”]?)  ⇒ 成功">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="录入计数" VariableExpression="${var:录入计数}+1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -239,9 +249,12 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="2结束" Id="27b75533-bf34-4106-b278-68004ee33df5" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”成功">
+              <Trigger Enabled="true" Name="2结束" Id="4069de70-97df-46d2-90b4-e1853f7c4fdb" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”([^:]?)成功">
                 <Actions>
                   <Action OrderNumber="1" ListVariableOp="Join" ListVariableName="制作队列" ListVariableExpression=":" ListVariableTarget="队列副本" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
@@ -252,19 +265,22 @@
                   <Action OrderNumber="3" LogMessageText="//录入完毕" LogProcess="True" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="LogMessage">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" FolderId="6eab9a25-78c5-471d-9ac8-86fa20daff5d" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
+                  <Action OrderNumber="4" FolderId="0fba985f-3bc2-42e2-baf1-a839fe1dfa48" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" FolderId="8797b2fb-d534-46a9-88dc-5ef000ae995b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
+                  <Action OrderNumber="5" FolderId="f56f1c66-d23c-40a5-a07c-9ceb72db12c7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" FolderOp="DisableFolder" FolderId="ea65f959-0b23-4fc1-9cb9-7a8313e1e49c" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
+                  <Action OrderNumber="6" FolderOp="DisableFolder" FolderId="696620cf-f15d-4437-8376-305aa93f929b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="3检查" Id="102716c1-7160-49c2-ace2-cffb565165c4" RegularExpression="//录入完毕">
+              <Trigger Enabled="true" Name="3检查" Id="ca3ae8df-9b72-4fad-ad3e-02165c854950" RegularExpression="//录入完毕">
                 <Actions>
                   <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.12&gt;录入成功：" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback">
                     <Condition Enabled="false" Grouping="Or" />
@@ -282,8 +298,9 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="中止" Id="0db3a25e-c018-42ff-be6b-363c6663af8a" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)(中止了制作作业|制作失败了)">
+              <Trigger Enabled="true" Name="中止" Id="ac46ec5c-5f5c-45ef-8194-a30975017944" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)(中止了制作作业|制作失败了)">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableName="录入计数" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -294,20 +311,23 @@
                   <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.9&gt;中止录入————" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="ea65f959-0b23-4fc1-9cb9-7a8313e1e49c" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
+                  <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="696620cf-f15d-4437-8376-305aa93f929b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="6eab9a25-78c5-471d-9ac8-86fa20daff5d" Name="执行队列" Enabled="false">
+          <Folder Id="0fba985f-3bc2-42e2-baf1-a839fe1dfa48" Name="执行队列" Enabled="false">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="1触发" Id="b7cb8876-6eb1-4887-a063-e11658d59b46" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)开始制作“(?&lt;ac_name&gt;[^:]*?)”">
+              <Trigger Enabled="true" Name="1触发" Id="e5520e5d-fc12-444d-b913-85a002ba4b71" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)开始制作“(?&lt;ac_name&gt;[^:]*?)”">
                 <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="CancelTrigger" TriggerId="d2b440a2-8fb0-410a-87bd-5d9d1bd9c6c2" ActionType="Trigger">
+                  <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="CancelTrigger" TriggerId="53f18b93-3077-48d9-a1f1-8a74e0922aac" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="队列地址" VariableExpression="1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
@@ -317,9 +337,12 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="2执行" Id="303457e3-4d6c-4a9d-9981-624788c05136" RegularExpression="^.{14} ChatLog 00:08(42|2B)::(?&lt;name&gt;[^:]+?)发动([了]?)“.*”">
+              <Trigger Enabled="true" Name="2执行" Id="f56faaf8-2c84-4151-b366-5a761e314868" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;name&gt;[^:]+?)(发动“|的)(?&lt;ac_name&gt;[^:]*?)([”]?)  ⇒ 成功">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="队列地址" VariableExpression="${var:队列地址}+1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -361,31 +384,34 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Name="录入准备" Id="8e04f73a-459f-439f-86de-ae28806aa34f" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)开始制作“(?&lt;ac_name&gt;[^:]*?)”">
+          <Trigger Enabled="true" Name="录入准备" Id="d58f9e4a-2273-4956-bd2f-c17beae2fe91" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)开始制作“(?&lt;ac_name&gt;[^:]*?)”">
             <Actions>
-              <Action OrderNumber="1" FolderId="ea65f959-0b23-4fc1-9cb9-7a8313e1e49c" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder">
+              <Action OrderNumber="1" FolderId="696620cf-f15d-4437-8376-305aa93f929b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.5&gt;正在录入————" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${elvar:制作队列}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="d2b440a2-8fb0-410a-87bd-5d9d1bd9c6c2" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”成功" PrevActions="Interrupt">
+      <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="53f18b93-3077-48d9-a1f1-8a74e0922aac" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”([^:]?)成功" PrevActions="Interrupt">
         <Actions>
-          <Action OrderNumber="1" LogMessageText="//补状态" LogProcess="True" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="e04cd7d0-6744-4862-896a-9baebebb1a93" TriggerForce="regexp" ActionType="LogMessage">
+          <Action OrderNumber="1" LogMessageText="//补状态" LogProcess="True" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="d2f3916a-ed29-45fa-97a2-9e49225ff965" TriggerForce="regexp" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Or">
               <ConditionGroup Enabled="true" Grouping="And">
                 <ConditionSingle Enabled="true" ExpressionL="${var:药}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -433,19 +459,20 @@
           </Action>
         </Actions>
         <Condition Enabled="true" Grouping="Or" />
+        <Conditions />
       </Trigger>
-      <Trigger Enabled="false" Name="启用此触发器以使用队列夹导入队列" Id="6e282a45-6116-4b62-8feb-e122e60f7d0e" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
+      <Trigger Enabled="false" Name="启用此触发器以使用队列夹导入队列" Id="c7680e3f-4f7b-4ef2-b290-f3003ee8b784" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="6e282a45-6116-4b62-8feb-e122e60f7d0e" ActionType="Trigger">
+          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="c7680e3f-4f7b-4ef2-b290-f3003ee8b784" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="2" ListVariableName="制作队列" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="6eab9a25-78c5-471d-9ac8-86fa20daff5d" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
+          <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="0fba985f-3bc2-42e2-baf1-a839fe1dfa48" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="8797b2fb-d534-46a9-88dc-5ef000ae995b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
+          <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="f56f1c66-d23c-40a5-a07c-9ceb72db12c7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableName="录入计数" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
@@ -472,7 +499,7 @@
           <Action OrderNumber="12" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableName="耐久" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="13" FolderId="ea65f959-0b23-4fc1-9cb9-7a8313e1e49c" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder">
+          <Action OrderNumber="13" FolderId="696620cf-f15d-4437-8376-305aa93f929b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="14" LogMessageText="//队列夹导入" LogProcess="True" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="LogMessage" ExecutionDelayExpression="1000">
@@ -480,8 +507,9 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Name="键位设置——双击详述" Id="d7e0cce9-ef2c-452e-81c5-34ad848f90e9" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 嗑药2 维修3 （大键盘数字）">
+      <Trigger Enabled="true" Name="键位设置——双击详述" Id="d26132aa-9862-4689-a45c-4b960ba2e419" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 嗑药2 维修3 （大键盘数字）">
         <Actions>
           <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Placeholder" Description="右上角点描述查看具体设置↗↗↗↗↗" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
@@ -497,10 +525,11 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
-      <Trigger Enabled="false" Name="启用此触发器来检查目前队列（聊天框查看" Id="3353e2fc-fd52-4354-8807-f943019c17e6" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
+      <Trigger Enabled="false" Name="启用此触发器来检查目前队列（聊天框查看" Id="6da8bf4d-6d72-47ee-9bb3-d1962e0b2087" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="3353e2fc-fd52-4354-8807-f943019c17e6" ActionType="Trigger">
+          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="6da8bf4d-6d72-47ee-9bb3-d1962e0b2087" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e ///////////////////////////////" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="100">
@@ -529,19 +558,20 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
-      <Trigger Enabled="false" Name="启用此触发器以初始化（清除队列）" Id="3cd7fc65-313e-4229-b4de-70421f2550fb" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
+      <Trigger Enabled="false" Name="启用此触发器以初始化（清除队列）" Id="aaa593fe-276f-42c2-bc11-7b893d44a4c8" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="3cd7fc65-313e-4229-b4de-70421f2550fb" ActionType="Trigger">
+          <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" TriggerId="aaa593fe-276f-42c2-bc11-7b893d44a4c8" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="2" ListVariableName="制作队列" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="6eab9a25-78c5-471d-9ac8-86fa20daff5d" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
+          <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="0fba985f-3bc2-42e2-baf1-a839fe1dfa48" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="8797b2fb-d534-46a9-88dc-5ef000ae995b" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
+          <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="f56f1c66-d23c-40a5-a07c-9ceb72db12c7" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerOp="DisableTrigger" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="5" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableName="录入计数" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
@@ -573,6 +603,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
