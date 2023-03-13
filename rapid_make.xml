@@ -16,7 +16,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="药有了" Id="ee815893-f92c-4dba-9e00-e550e2a2a9d1" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“强化药”的效果" RefirePeriodExpression="100">
                 <Actions>
@@ -30,7 +29,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -49,7 +47,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="食物没了" Id="fd138784-032d-406b-ab90-76dc23db176b" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“进食”状态效果消失了">
                 <Actions>
@@ -60,7 +57,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -76,7 +72,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="耐久有了" Id="5c246bc4-aab6-47c9-a3a7-80726a58fa7f" RegularExpression="修理好了">
                 <Actions>
@@ -90,7 +85,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="维修" Id="a6022aaf-d1df-402d-9d2b-c10b9a4c9139" RegularExpression="">
                 <Actions>
@@ -126,7 +120,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -175,7 +168,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="重启" Id="fc0b12aa-9534-400d-95fe-f282f4b96d1f" RegularExpression="">
             <Actions>
@@ -202,7 +194,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -228,7 +219,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -237,7 +227,7 @@
           <Folder Id="ea65f959-0b23-4fc1-9cb9-7a8313e1e49c" Name="队列录入" Enabled="false">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="1录入" Id="0ab9c29d-58f7-4ae6-862a-774282a9e9cf" RegularExpression="^.{14} ChatLog 00:08(42|2B)::(?&lt;name&gt;[^:]+?)发动([了]?)“(?&lt;ac_name&gt;[^:]*?)”">
+              <Trigger Enabled="true" Name="1录入" Id="0ab9c29d-58f7-4ae6-862a-774282a9e9cf" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;name&gt;[^:]+?)(发动“|的)(?&lt;ac_name&gt;[^:]*?)([”]?)  ⇒ 成功">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="录入计数" VariableExpression="${var:录入计数}+1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
@@ -253,7 +243,7 @@
               </Trigger>
               <Trigger Enabled="true" Name="2结束" Id="27b75533-bf34-4106-b278-68004ee33df5" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”成功">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Join" ListVariableName="制作队列" ListVariableExpression=":" ListVariableTarget="队列副本" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable">
+                  <Action OrderNumber="1" ListVariableOp="Join" ListVariableName="制作队列" ListVariableExpression=":" ListVariableTarget="队列副本" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableName="录入计数" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
@@ -309,7 +299,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -335,7 +324,7 @@
                   <Action OrderNumber="1" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" VariableOp="SetNumeric" VariableName="队列地址" VariableExpression="${var:队列地址}+1" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac ${lvar:制作队列[${var:队列地址}]}" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac ${lvar:制作队列[${var:队列地址}]}" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="50">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/ac ${lvar:制作队列[${var:队列地址}]}" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="NamedCallback" ExecutionDelayExpression="25">
@@ -389,7 +378,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${elvar:制作队列}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -492,7 +480,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="键位设置——双击详述" Id="d7e0cce9-ef2c-452e-81c5-34ad848f90e9" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 嗑药2 维修3 （大键盘数字）">
         <Actions>
@@ -510,7 +497,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="false" Name="启用此触发器来检查目前队列（聊天框查看" Id="3353e2fc-fd52-4354-8807-f943019c17e6" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
@@ -543,7 +529,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="false" Name="启用此触发器以初始化（清除队列）" Id="3cd7fc65-313e-4229-b4de-70421f2550fb" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
@@ -588,7 +573,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
