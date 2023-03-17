@@ -243,7 +243,7 @@
           <Folder Id="9d3e52e9-a552-4088-90bf-6d40d8e62887" Name="队列录入" Enabled="false">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="2结束" Id="1b0012f9-a108-46db-b1f8-df2575f3b56b" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”([^:]+)成功">
+              <Trigger Enabled="true" Name="2结束" Id="1b0012f9-a108-46db-b1f8-df2575f3b56b" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”([^:]*)成功">
                 <Actions>
                   <Action OrderNumber="1" ListVariableOp="Join" ListVariableName="制作队列" ListVariableExpression=":" ListVariableTarget="队列副本" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
@@ -444,7 +444,7 @@
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="07572afa-f486-4682-a2e9-579ddde05da9" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]+?)”([^:]+)成功" PrevActions="Interrupt">
+      <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="07572afa-f486-4682-a2e9-579ddde05da9" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]+?)”([^:]*)成功" PrevActions="Interrupt">
         <Actions>
           <Action OrderNumber="1" LogMessageText="//补状态" LogProcess="True" OBSEndPoint="ws://${_const[OBSWebsocketEndpoint]}:${_const[OBSWebsocketPort]}" OBSPassword="${_const[OBSWebsocketPassword]}" TextAuraFontSize="9.07563" TextAuraFontName="宋体" TriggerId="ade6f26f-d8cb-4b9f-ace3-9370e7c2ed75" TriggerForce="regexp" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Or">
