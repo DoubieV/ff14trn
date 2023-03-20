@@ -4,7 +4,7 @@
     <Folders>
       <Folder Id="08f18c0a-eb6e-446d-a3f7-5547d7112f6f" Name="补状态" Enabled="false">
         <Folders>
-          <Folder Id="47d15f9f-3eef-474a-a06d-0db434263a84" Name="嗑药" Enabled="true">
+          <Folder Id="47d15f9f-3eef-474a-a06d-0db434263a84" Name="吃药" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Name="药没了" Id="161713e4-342b-4733-86ff-21f7e6b4b9cd" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“强化药”状态效果消失了">
@@ -69,9 +69,7 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
               <Trigger Enabled="true" Name="耐久有了" Id="41a36006-bb79-4480-bcb4-06cba8f49689" RegularExpression="^.{14} ChatLog 00:0839::修理好了[^:]+件道具">
                 <Actions>
@@ -82,9 +80,7 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
               <Trigger Enabled="true" Name="维修" Id="30ad3ca8-e13d-487f-9a33-acb74429bd1e" RegularExpression="">
                 <Actions>
@@ -234,7 +230,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
