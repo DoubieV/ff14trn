@@ -4,103 +4,73 @@
     <Folders>
       <Folder Id="08f18c0a-eb6e-446d-a3f7-5547d7112f6f" Name="补状态" Enabled="false">
         <Folders>
-          <Folder Id="47d15f9f-3eef-474a-a06d-0db434263a84" Name="吃药" Enabled="true">
-            <Folders />
+          <Folder Id="5070b5b9-6ea9-4a2e-a517-b3499b3c40a6" Name="监听" Enabled="true">
+            <Folders>
+              <Folder Id="f160f00e-8b78-4e2b-85a4-9d038387c109" Name="耐久" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="耐久没了" Id="cc436b5d-d03f-48f9-9ffc-cfa77bf90db9" RegularExpression="的耐久度已降到">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="耐久" VariableExpression="0" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="耐久有了" Id="41a36006-bb79-4480-bcb4-06cba8f49689" RegularExpression="^.{14} ChatLog 00:0839::修理好了[^:]+件道具">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="耐久" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" TriggerId="20f636ac-4bfa-4c5a-9d08-a19fc4fe8c9d" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
             <Triggers>
-              <Trigger Enabled="true" Name="药没了" Id="161713e4-342b-4733-86ff-21f7e6b4b9cd" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“强化药”状态效果消失了">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="药" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="true" Name="药有了" Id="ce54928f-ac67-4b0b-a7d1-4ecaf97455c1" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“强化药”的效果" RefirePeriodExpression="100">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="药" VariableExpression="1" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" TriggerId="20f636ac-4bfa-4c5a-9d08-a19fc4fe8c9d" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="782619f7-b7e2-48cd-9a6b-82d7e5d5799c" Name="食物" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="食物有了" Id="14c6def3-3a88-4f6f-85f3-170320da242b" RegularExpression="^.{14} ChatLog 00:08AE::[^:]+对(?&lt;name&gt;[^:]+?)附加了“进食”的效果">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="食物" VariableExpression="1" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" TriggerId="20f636ac-4bfa-4c5a-9d08-a19fc4fe8c9d" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="true" Name="食物没了" Id="d7535bf8-0848-41e0-99db-8f316d1d11a3" RegularExpression="^.{14} ChatLog 00:08B0::(?&lt;name&gt;[^:]+?)的“进食”状态效果消失了">
+              <Trigger Enabled="true" Name="食物和药" Id="e6a7e5a6-5845-4709-a15f-8a6abad6da01" RegularExpression="^.{14} Status(Add|Remove) 1(?&lt;effect&gt;A|E):[^:]+:(?&lt;buff&gt;[^:]+?):(?&lt;duration&gt;[^:]+?):.{8}:(?&lt;name&gt;[^:]+?):">
                 <Actions>
                   <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="食物" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="进食" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="药" VariableExpression="0" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="强化药" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="食物" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="进食" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="药" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="强化药" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" TriggerId="20f636ac-4bfa-4c5a-9d08-a19fc4fe8c9d" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionGroup Enabled="true" Grouping="Or">
+                        <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="进食" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="强化药" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      </ConditionGroup>
+                    </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="f160f00e-8b78-4e2b-85a4-9d038387c109" Name="耐久" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Name="耐久没了" Id="cc436b5d-d03f-48f9-9ffc-cfa77bf90db9" RegularExpression="的耐久度已降到">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="耐久" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="耐久有了" Id="41a36006-bb79-4480-bcb4-06cba8f49689" RegularExpression="^.{14} ChatLog 00:0839::修理好了[^:]+件道具">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="耐久" VariableExpression="1" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" TriggerId="20f636ac-4bfa-4c5a-9d08-a19fc4fe8c9d" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="维修" Id="30ad3ca8-e13d-487f-9a33-acb74429bd1e" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
-                    <Condition Enabled="false" Grouping="And" />
-                  </Action>
-                  <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="And" />
-                  </Action>
-                  <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="And" />
-                  </Action>
-                  <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="And" />
-                  </Action>
-                  <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
-                    <Condition Enabled="false" Grouping="And" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
             </Triggers>
           </Folder>
@@ -108,13 +78,13 @@
         <Triggers>
           <Trigger Enabled="true" Name="补" Id="ade6f26f-d8cb-4b9f-ace3-9370e7c2ed75" RegularExpression="//补状态">
             <Actions>
-              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="07572afa-f486-4682-a2e9-579ddde05da9" ActionType="Trigger">
+              <Action OrderNumber="1" TriggerId="4756b276-c4d6-410a-b70a-86b8c994e8e0" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" TriggerId="4756b276-c4d6-410a-b70a-86b8c994e8e0" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="2000">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
@@ -141,22 +111,19 @@
               <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="${var:食物键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="2000">
+              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="${var:食物键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="2000">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:食物}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:食物}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="14" KeypressType="WindowMessage" KeyPressCode="${var:嗑药键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="${var:喝药键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:药}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:药}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="15" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" TriggerId="30ad3ca8-e13d-487f-9a33-acb74429bd1e" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+              <Action OrderNumber="14" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" TriggerId="30ad3ca8-e13d-487f-9a33-acb74429bd1e" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:耐久}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:耐久}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -187,6 +154,26 @@
               </Action>
               <Action OrderNumber="7" TriggerId="07572afa-f486-4682-a2e9-579ddde05da9" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="维修" Id="30ad3ca8-e13d-487f-9a33-acb74429bd1e" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="And" />
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="And" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -284,7 +271,7 @@
             <Triggers>
               <Trigger Enabled="true" Name="1触发" Id="5299c36d-58ed-4aa2-8bc8-cb08ba94bca8" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)开始制作“(?&lt;ac_name&gt;[^:]*?)”">
                 <Actions>
-                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="07572afa-f486-4682-a2e9-579ddde05da9" ActionType="Trigger">
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="7e9604be-0e4c-4410-937d-242f0f791534" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="队列地址" VariableExpression="1" ActionType="Variable">
@@ -377,6 +364,44 @@
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
+              <Trigger Enabled="true" Name="0开始" Id="7e9604be-0e4c-4410-937d-242f0f791534" RegularExpression="//执行">
+                <Actions>
+                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
             </Triggers>
           </Folder>
         </Folders>
@@ -408,9 +433,9 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="解除" Id="978cac40-4971-4e47-b875-172833183c68" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]+?)”([^:]*)成功">
+          <Trigger Enabled="true" Name="解除" Id="978cac40-4971-4e47-b875-172833183c68" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)(制作“(?&lt;ac_name&gt;[^:]+?)”([^:]*)成功|(中止了制作作业|制作失败了))">
             <Actions>
-              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/系统音 100" ActionType="NamedCallback">
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/系统音 100" ActionType="NamedCallback" ExecutionDelayExpression="2000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -440,7 +465,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -469,7 +493,7 @@
           <Action OrderNumber="7" VariableName="食物键位" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="8" VariableName="嗑药键位" ActionType="Variable">
+          <Action OrderNumber="8" VariableName="喝药键位" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="9" VariableName="维修键位" ActionType="Variable">
@@ -493,7 +517,7 @@
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
-      <Trigger Enabled="true" Name="键位设置——双击详述" Id="4756b276-c4d6-410a-b70a-86b8c994e8e0" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 嗑药2 维修3 （大键盘数字）">
+      <Trigger Enabled="true" Name="键位设置——双击详述" Id="4756b276-c4d6-410a-b70a-86b8c994e8e0" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 喝药2 维修3 （大键盘数字）">
         <Actions>
           <Action OrderNumber="1" ActionType="Placeholder" Description="右上角点描述查看具体设置↗↗↗↗↗" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
@@ -504,7 +528,7 @@
           <Action OrderNumber="3" VariableOp="SetString" VariableName="维修键位" VariableExpression="51" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" VariableOp="SetString" VariableName="嗑药键位" VariableExpression="50" ActionType="Variable">
+          <Action OrderNumber="4" VariableOp="SetString" VariableName="喝药键位" VariableExpression="50" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
@@ -568,7 +592,7 @@
           <Action OrderNumber="8" VariableName="食物键位" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="9" VariableName="嗑药键位" ActionType="Variable">
+          <Action OrderNumber="9" VariableName="喝药键位" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="10" VariableName="维修键位" ActionType="Variable">
@@ -591,7 +615,10 @@
       </Trigger>
       <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="07572afa-f486-4682-a2e9-579ddde05da9" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]+?)”([^:]*)成功" PrevActions="Interrupt">
         <Actions>
-          <Action OrderNumber="1" LogMessageText="//补状态" LogProcess="True" TriggerId="ade6f26f-d8cb-4b9f-ace3-9370e7c2ed75" TriggerForce="regexp" ActionType="LogMessage" ExecutionDelayExpression="1000">
+          <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="2500">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" LogMessageText="//补状态" LogProcess="True" TriggerId="ade6f26f-d8cb-4b9f-ace3-9370e7c2ed75" TriggerForce="regexp" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Or">
               <ConditionGroup Enabled="true" Grouping="And">
                 <ConditionSingle Enabled="true" ExpressionL="${var:药}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -607,38 +634,24 @@
               </ConditionGroup>
             </Condition>
           </Action>
-          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
-            <Condition Enabled="false" Grouping="Or" />
+          <Action OrderNumber="3" LogMessageText="//执行" LogProcess="True" TriggerId="ade6f26f-d8cb-4b9f-ace3-9370e7c2ed75" TriggerForce="regexp" ActionType="LogMessage">
+            <Condition Enabled="true" Grouping="Not">
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${var:药}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${evar:药}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${var:食物}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${evar:食物}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+              <ConditionGroup Enabled="true" Grouping="And">
+                <ConditionSingle Enabled="true" ExpressionL="${var:耐久}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <ConditionSingle Enabled="true" ExpressionL="${evar:耐久}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              </ConditionGroup>
+            </Condition>
           </Action>
         </Actions>
-        <Condition Enabled="true" Grouping="Or" />
+        <Condition Enabled="false" Grouping="Or" />
       </Trigger>
     </Triggers>
   </ExportedFolder>
