@@ -454,9 +454,12 @@
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
-      <Trigger Enabled="true" Name="设置延迟" Id="fa8ab378-face-4ef1-88e8-eb20e2122de3" RegularExpression="//delay" EditAutofire="True">
+      <Trigger Enabled="true" Name="设置延迟（双击看教程" Id="fa8ab378-face-4ef1-88e8-eb20e2122de3" RegularExpression="//delay" EditAutofire="True" Description="教程：https://www.bilibili.com/read/readlist/rl710341">
         <Actions>
-          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="delay" VariableExpression="1" ActionType="Variable">
+          <Action OrderNumber="1" Enabled="False" ActionType="Placeholder" Description="！请点击右上角的描述查看详细说明↗！" DescriptionOverride="True">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="delay" VariableExpression="1" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
