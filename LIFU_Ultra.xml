@@ -213,7 +213,7 @@
               <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="350*${var:delay}">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200*${var:delay}">
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="106" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200*${var:delay}">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200*${var:delay}">
