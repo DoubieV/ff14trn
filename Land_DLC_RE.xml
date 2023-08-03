@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="ac6b4412-0e93-4446-8a59-4cfd8a3522c4" ZoneFilterRegularExpression="^无名岛$" Name="re" Enabled="true">
+    <Folders>
+      <Folder Id="f72e955f-aff6-4c2d-9d6b-52c0753c3610" Name="ctrl" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="off" Id="8a62d727-cc87-4fe2-94ca-2e534d86c04d" RegularExpression="//停止工作">
+            <Actions>
+              <Action OrderNumber="1" VariableName="re_type" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="on" Id="2504180a-66dd-433f-9aea-6a117c246d41" RegularExpression="//开始工作">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="re_type" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="f5d09c47-5bf7-4a21-9b09-a3e6cbc1287f" Name="gui" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="in" Id="457fc8d2-ca81-4228-afb5-c7b8aa2c6615" RegularExpression="^.{14} ChatLog 00:0039::.*发送了参加申请。">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="out" Id="5e40a72f-2917-4b40-a69d-a9c15af35d2f" RegularExpression="^.{14} Director 21:80034E21:40000007:01:01:00:00">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="85" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="85" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="start" Id="5b378d4d-bbf3-4810-b402-eed1db9a82a0" RegularExpression="^.{14} ChatLog 00:083E::.*获得了" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="/前进 &lt;wait.4&gt;&#xD;&#xA;&#xD;/前进 关&#xD;&#xD;&#xA;/最近敌人&#xD;&#xA;&#xD;/焦点目标&#xD;&#xD;&#xA;/ac 强力射击">
+        <Actions>
+          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="count" VariableExpression="${var:count}+1" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="5b378d4d-bbf3-4810-b402-eed1db9a82a0" ActionType="Trigger" ExecutionDelayExpression="100">
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:count}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+            </Condition>
+          </Action>
+          <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/跟随 &lt;4&gt;" OBSEndPoint="" TriggerOp="CancelTrigger" TriggerId="f9b01f40-0254-40d2-938d-30780cc361c4" ActionType="Trigger" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Name="restart" Id="d5a1f5c7-54c3-49e9-89a5-b78763570be9" RegularExpression="^.{14} AddCombatant 03:4000" PeriodRefire="Deny" RefirePeriodExpression="3000">
+        <Actions>
+          <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="d5a1f5c7-54c3-49e9-89a5-b78763570be9" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e debug_re" Enabled="False" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="count" VariableExpression="0" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="工作判定" VariableExpression="1" ActionType="Variable" ExecutionDelayExpression="500">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" LogMessageText="//开始工作" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="100">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="land" Id="b85483bd-9ed4-4e1a-9ac7-18f12281c5ca" RegularExpression="ChangeMap 28:773:？？？？:无名岛:">
+        <Actions>
+          <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="d5a1f5c7-54c3-49e9-89a5-b78763570be9" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+        </Condition>
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
