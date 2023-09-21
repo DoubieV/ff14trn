@@ -5,7 +5,7 @@
       <Folder Id="b434866a-8150-45e3-9900-1d47100fda9a" Name="mark" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Name="标记" Id="c3ad915d-0366-4bca-afe2-f4d3bed84011" RegularExpression="^.{14} 261 105:Change:(?&lt;pcid&gt;[^:]+?):TargetID:87342(?&lt;type&gt;[^:]+?):">
+          <Trigger Enabled="true" Name="标记" Id="c3ad915d-0366-4bca-afe2-f4d3bed84011" RegularExpression="^.{14} 261 105:Change:(?&lt;pcid&gt;[^:]+?):(.*?)PCTargetID:87342(?&lt;type&gt;[^:]+?)">
             <Actions>
               <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/mk cross" ActionType="NamedCallback">
                 <Condition Enabled="true" Grouping="And">
@@ -48,7 +48,6 @@
               <ConditionSingle Enabled="true" ExpressionL="${pcid}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[1].id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               <ConditionSingle Enabled="true" ExpressionL="${evar:delay}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="trigger" Id="149121fa-264f-4726-879c-382ae8193618" RegularExpression="//理符">
             <Actions>
@@ -82,7 +81,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="确认" Id="87241100-ab12-413f-af37-a7726d59cd02" RegularExpression="^.{14} SignMarker 1D:Add:[^:]+:(?&lt;pcid&gt;[^:]+?):(?&lt;name&gt;[^:]+?):87342(?&lt;type&gt;[^:]+?):">
             <Actions>
@@ -139,7 +137,6 @@
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               <ConditionSingle Enabled="true" ExpressionL="${evar:delay}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -195,7 +192,6 @@
                 <ConditionSingle Enabled="true" ExpressionL="${var:typeB}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="1交" Id="9e64e1a0-409b-4583-b26f-915f812d8770" RegularExpression="//autogui">
             <Actions>
@@ -261,7 +257,6 @@
                 <ConditionSingle Enabled="true" ExpressionL="${var:typeB}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="*trigger" Id="0371271a-7000-4fc2-81f6-3e21909be69f" RegularExpression="//trigger|(^.{14} ChatLog 00:00(39|3E)::((?&lt;type&gt;[^:]+?)了任地“旧萨雷安”的任务“制作委托：提高品质用的炼金药”。|(?&lt;type&gt;[^:]+?)了[^:]+金币。))">
             <Actions>
@@ -302,7 +297,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${evar:delay}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="*clock" Id="82e1af67-deb8-4df8-aa2d-7e8418524f65" RegularExpression="//trigger">
             <Actions>
@@ -327,7 +321,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -348,7 +341,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="物品计数" Id="880e47a9-5267-48a0-9cc3-94a37363c1df" RegularExpression="^.{14} ChatLog 00:083E::(?&lt;name&gt;[^:]+?)获得了(?&lt;素材name&gt;[^:]*?)。">
                 <Actions>
@@ -375,7 +367,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -414,7 +405,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -440,30 +430,32 @@
           <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/e 已初始化！&lt;se.5&gt;" ActionType="NamedCallback">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/mk cross &lt;me&gt;" ActionType="NamedCallback">
+          <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/target &lt;me&gt;" ActionType="NamedCallback">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/mk triangle &lt;me&gt;" ActionType="NamedCallback" ExecutionDelayExpression="200">
+          <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/mk cross &lt;me&gt;" ActionType="NamedCallback" ExecutionDelayExpression="100">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/mk off &lt;me&gt;" ActionType="NamedCallback" ExecutionDelayExpression="700">
+          <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/mk triangle &lt;me&gt;" ActionType="NamedCallback" ExecutionDelayExpression="200">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="10" ActionType="Placeholder" ExecutionDelayExpression="5000">
+          <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/mk off &lt;me&gt;" ActionType="NamedCallback" ExecutionDelayExpression="700">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="11" VariableName="coin" ActionType="Variable">
+          <Action OrderNumber="11" ActionType="Placeholder" ExecutionDelayExpression="5000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="12" ListVariableName="素材集合" ActionType="ListVariable">
+          <Action OrderNumber="12" VariableName="coin" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="13" ListVariableName="素材计数" ActionType="ListVariable">
+          <Action OrderNumber="13" ListVariableName="素材集合" ActionType="ListVariable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="14" ListVariableName="素材计数" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="设置延迟（双击看教程" Id="fa8ab378-face-4ef1-88e8-eb20e2122de3" RegularExpression="//delay" EditAutofire="True" Description="教程：https://www.bilibili.com/read/readlist/rl710341">
         <Actions>
@@ -475,7 +467,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
