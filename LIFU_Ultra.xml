@@ -48,6 +48,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${pcid}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[1].id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               <ConditionSingle Enabled="true" ExpressionL="${evar:delay}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="trigger" Id="149121fa-264f-4726-879c-382ae8193618" RegularExpression="//理符">
             <Actions>
@@ -81,6 +82,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="确认" Id="87241100-ab12-413f-af37-a7726d59cd02" RegularExpression="^.{14} SignMarker 1D:Add:[^:]+:(?&lt;pcid&gt;[^:]+?):(?&lt;name&gt;[^:]+?):87342(?&lt;type&gt;[^:]+?):">
             <Actions>
@@ -137,6 +139,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               <ConditionSingle Enabled="true" ExpressionL="${evar:delay}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -192,6 +195,7 @@
                 <ConditionSingle Enabled="true" ExpressionL="${var:typeB}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
             </Condition>
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="1交" Id="9e64e1a0-409b-4583-b26f-915f812d8770" RegularExpression="//autogui">
             <Actions>
@@ -257,6 +261,7 @@
                 <ConditionSingle Enabled="true" ExpressionL="${var:typeB}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               </ConditionGroup>
             </Condition>
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="*trigger" Id="0371271a-7000-4fc2-81f6-3e21909be69f" RegularExpression="//trigger|(^.{14} ChatLog 00:00(39|3E)::((?&lt;type&gt;[^:]+?)了任地“旧萨雷安”的任务“制作委托：提高品质用的炼金药”。|(?&lt;type&gt;[^:]+?)了[^:]+金币。))">
             <Actions>
@@ -297,6 +302,7 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${evar:delay}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="*clock" Id="82e1af67-deb8-4df8-aa2d-7e8418524f65" RegularExpression="//trigger">
             <Actions>
@@ -321,6 +327,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -341,6 +348,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="物品计数" Id="880e47a9-5267-48a0-9cc3-94a37363c1df" RegularExpression="^.{14} ChatLog 00:083E::(?&lt;name&gt;[^:]+?)获得了(?&lt;素材name&gt;[^:]*?)。">
                 <Actions>
@@ -367,6 +375,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -405,6 +414,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -456,6 +466,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Name="设置延迟（双击看教程" Id="fa8ab378-face-4ef1-88e8-eb20e2122de3" RegularExpression="//delay" EditAutofire="True" Description="教程：https://www.bilibili.com/read/readlist/rl710341">
         <Actions>
@@ -467,6 +478,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
