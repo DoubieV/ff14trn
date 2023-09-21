@@ -87,7 +87,7 @@
           </Action>
           <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="5b378d4d-bbf3-4810-b402-eed1db9a82a0" ActionType="Trigger" ExecutionDelayExpression="100">
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${var:count}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+              <ConditionSingle Enabled="true" ExpressionL="${var:count}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
             </Condition>
           </Action>
           <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/跟随 &lt;4&gt;" OBSEndPoint="" TriggerOp="CancelTrigger" TriggerId="f9b01f40-0254-40d2-938d-30780cc361c4" ActionType="Trigger" ExecutionDelayExpression="100">
@@ -125,7 +125,7 @@
           <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="false" Name="restart" Id="d5a1f5c7-54c3-49e9-89a5-b78763570be9" RegularExpression="^.{14} AddCombatant 03:4000" PeriodRefire="Deny" RefirePeriodExpression="3000">
+      <Trigger Enabled="false" Name="restart" Id="d5a1f5c7-54c3-49e9-89a5-b78763570be9" RegularExpression="^.{14} AddCombatant 03:4" PeriodRefire="Deny" RefirePeriodExpression="3000">
         <Actions>
           <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="d5a1f5c7-54c3-49e9-89a5-b78763570be9" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
@@ -147,7 +147,7 @@
           <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="true" Name="land" Id="b85483bd-9ed4-4e1a-9ac7-18f12281c5ca" RegularExpression="ChangeMap 28:773:？？？？:无名岛:">
+      <Trigger Enabled="true" Name="land" Id="b85483bd-9ed4-4e1a-9ac7-18f12281c5ca" RegularExpression="ChangeMap 28:780:？？？？:无名岛:">
         <Actions>
           <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="d5a1f5c7-54c3-49e9-89a5-b78763570be9" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
