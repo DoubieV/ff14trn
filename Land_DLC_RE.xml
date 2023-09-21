@@ -147,7 +147,7 @@
           <ConditionSingle Enabled="true" ExpressionL="${var:re_type}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
         </Condition>
       </Trigger>
-      <Trigger Enabled="true" Name="land" Id="b85483bd-9ed4-4e1a-9ac7-18f12281c5ca" RegularExpression="ChangeMap 28:780:？？？？:无名岛:">
+      <Trigger Enabled="true" Name="land" Id="b85483bd-9ed4-4e1a-9ac7-18f12281c5ca" RegularExpression="ChangeMap 28:(?!773)\d{3}:？？？？:无名岛:">
         <Actions>
           <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="d5a1f5c7-54c3-49e9-89a5-b78763570be9" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
