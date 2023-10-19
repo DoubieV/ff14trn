@@ -1,0 +1,1372 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="285e0c14-7812-4086-99d6-0c2d16d4cd9d" Name="军票demo" Enabled="true">
+    <Folders>
+      <Folder Id="20f28ac9-321e-4e18-9a2a-b8a929a302ba" Name="gui" Enabled="true">
+        <Folders>
+          <Folder Id="bc9077fe-bfb5-49bc-b3e3-44c410658a08" Name="loot" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="*take" Id="ed69d2fb-50b1-4a99-8097-998b95ec4911" RegularExpression="^.{14} Director 21:.{8}:40000003" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="1b42aec2-daf5-45c6-8efb-0905a809eef3" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="1000">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/ac 冲刺" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="take" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/targetnpc" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/lockon on" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/automove" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="87" ActionType="NamedCallback" ExecutionDelayExpression="500">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="11" LoopDelayExpression="200" ActionType="Loop">
+                    <LoopCondition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:take}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </LoopCondition>
+                    <LoopActions>
+                      <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </LoopActions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="get out" Id="686a7bf2-f4bb-496a-895f-f55c4e15d5d0" RegularExpression="^.{14} ChatLog 00:083[CE]::([^:]+获得了“(?!九宫幻卡)[^:]+(?&lt;!图腾)”|已持有[^:]+)" PeriodRefire="Deny" RefirePeriodExpression="500">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="take" VariableExpression="0" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="box" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" LogMessageText="//done" LogProcess="True" TriggerId="1daaa338-8998-424e-8a38-e0ad970aace8" TriggerForce="regexp" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:take}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="25a183cb-6c78-470e-8105-7dea91c8f184" Name="group" Enabled="true">
+            <Folders>
+              <Folder Id="c33045c4-4ef8-4278-9a4e-e1e2f394e41d" Name="*买" Enabled="true">
+                <Folders>
+                  <Folder Id="dc471a66-62f2-4881-9035-eb170e89d491" Name="operate" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Name="1.open" Id="4bc43ff4-eeb1-420c-8d08-7949a6f7ef22" RegularExpression="//买">
+                        <Actions>
+                          <Action OrderNumber="1" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="68" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="68" ActionType="WindowMessage" ExecutionDelayExpression="500">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/targetnpc" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="106" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" TriggerId="d5a8ea44-0006-4372-84f1-f4d5b83f5deb" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="2.location" Id="d5a8ea44-0006-4372-84f1-f4d5b83f5deb" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="1000">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_level}%3" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="98" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="1000">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_type}-1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="105" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" TriggerId="9eae5945-8baa-4de1-97d0-f2c8c1af805e" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1000">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:coin}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="5" TriggerOp="CancelTrigger" TriggerId="d5a8ea44-0006-4372-84f1-f4d5b83f5deb" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:coin}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="6" LoopDelayExpression="100" ActionType="Loop" ExecutionDelayExpression="1000">
+                            <LoopCondition Enabled="true" Grouping="Xor">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="abs(${var:buy_position})" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_position}-1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                              </ConditionGroup>
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="98" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="3" LogMessageText="//open_done" LogProcess="True" TriggerId="0421cc2a-1f2f-474b-83d4-5c1ce852ee91" TriggerForce="regexp" ActionType="Trigger">
+                                <Condition Enabled="true" Grouping="Xor">
+                                  <ConditionGroup Enabled="true" Grouping="And">
+                                    <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="abs(${var:buy_position})-1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                    <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                                    <ConditionGroup Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="-1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                                    </ConditionGroup>
+                                  </ConditionGroup>
+                                  <ConditionGroup Enabled="true" Grouping="And">
+                                    <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_position}-2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                    <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                                    <ConditionGroup Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="-1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                                    </ConditionGroup>
+                                  </ConditionGroup>
+                                </Condition>
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" LogMessageText="//open_done" LogProcess="True" TriggerId="0421cc2a-1f2f-474b-83d4-5c1ce852ee91" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1000">
+                            <Condition Enabled="true" Grouping="Xor">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="-1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="3.set" Id="0421cc2a-1f2f-474b-83d4-5c1ce852ee91" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" TriggerId="5e307a74-5710-4f12-8231-386af23dc666" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="0421cc2a-1f2f-474b-83d4-5c1ce852ee91" ActionType="Trigger" ExecutionDelayExpression="100">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressExpression="NUM0" TriggerId="5e307a74-5710-4f12-8231-386af23dc666" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="10" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="12" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="300">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="floor(${var:buy_amount}/10)" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="3000" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="14" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="300">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_amount}%10-1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" TriggerId="5e307a74-5710-4f12-8231-386af23dc666" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="300" Asynchronous="False">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_amount}%10-2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </Condition>
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="99" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="4.buy" Id="5e307a74-5710-4f12-8231-386af23dc666" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:coin}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:coin}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:coin}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="98" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:coin}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="6" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="5.return" Id="0a1453b8-65cc-4cac-9501-38aa3230f67f" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="500">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" LogMessageText="//restart" LogProcess="True" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="3*.set_coin" Id="9eae5945-8baa-4de1-97d0-f2c8c1af805e" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" TriggerId="5e307a74-5710-4f12-8231-386af23dc666" TriggerForce="regexp" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="4" TriggerOp="CancelTrigger" TriggerId="0421cc2a-1f2f-474b-83d4-5c1ce852ee91" ActionType="Trigger" ExecutionDelayExpression="100">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressExpression="NUM0" TriggerId="5e307a74-5710-4f12-8231-386af23dc666" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="11" ActionType="Placeholder">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="14" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="300">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="floor(${var:buy_amount}/100)" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="15" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="3000" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="16" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="17" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="300">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="floor((${var:buy_amount}%100)/10)" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="18" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="3000" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="19" LoopDelayExpression="200" ActionType="Loop" ExecutionDelayExpression="300">
+                            <LoopCondition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_amount}%10-1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </LoopCondition>
+                            <LoopActions>
+                              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" TriggerId="5e307a74-5710-4f12-8231-386af23dc666" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="300" Asynchronous="False">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:buy_amount}%10-2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </Condition>
+                              </Action>
+                            </LoopActions>
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:buy_amount}" ExpressionTypeL="Numeric" ExpressionR="999" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers>
+                  <Trigger Enabled="true" Name="军票监听" Id="3419ee83-a31c-4e92-b6ab-0679fccb59c7" RegularExpression="^.{14} ChatLog 00:0(?&lt;type&gt;[^:]+)::(获得了(?&lt;ticket_k&gt;[^:]*?),(?&lt;ticket&gt;[^:]*?)(\([^:]+\))?张[^:]+的军票|交纳(?&lt;ticket_k&gt;[^:]*?),(?&lt;ticket&gt;[^:]*?)张军票，获得了“[^:]+”)">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="ticket" VariableExpression="0" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:ticket}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="item" VariableExpression="${var:item}-1" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="83E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:item}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="ticket" VariableExpression="${var:ticket}+${ticket_k}*1000+${ticket}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="83E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="ticket" VariableExpression="${var:ticket}-${ticket_k}*1000+${ticket}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="BB9" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" TriggerId="0a1453b8-65cc-4cac-9501-38aa3230f67f" TriggerForce="regexp" ActionType="Trigger">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${type}" ExpressionTypeL="String" ExpressionR="BB9" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="coin?" Id="9b008c0b-9739-4e96-8f3a-8b16db1d13c0" RegularExpression="//买">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="coin" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_level}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:buy_type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="c6f87cdc-2513-45a2-a87d-61d955852c9b" Name="*交" Enabled="true">
+                <Folders>
+                  <Folder Id="1df7da50-9931-4460-b3ef-c76f48e73c66" Name="预支卷" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Name="buff监听" Id="08b242d1-1bb7-478e-a66a-a4e28fbee24a" RegularExpression="^.{14} Status(Add|Remove) 1(?&lt;effect&gt;A|E):[^:]+:(?&lt;buff&gt;[^:]+?):(?&lt;duration&gt;[^:]+?):.{8}:(?&lt;player&gt;[^:]+?):">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="buff" VariableExpression="0" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="buff" VariableExpression="1" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="军票提高" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Name="补" Id="fa303502-90cf-4a26-a5aa-0830f975cf16" RegularExpression="//交">
+                        <Actions>
+                          <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="c717d3d7-c866-49c0-9823-2986c6a5b707" ActionType="Trigger" ExecutionDelayExpression="50">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="${var:boost_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" LogMessageText="//交" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:buff}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:buff}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers>
+                  <Trigger Enabled="true" Name="sell" Id="c717d3d7-c866-49c0-9823-2986c6a5b707" RegularExpression="//交">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/targetnpc" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="105" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="105" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="item_t" VariableExpression="${var:item}" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="8" ActionType="Placeholder">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="9" LoopDelayExpression="500" ActionType="Loop" ExecutionDelayExpression="200">
+                        <LoopCondition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:item_t}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </LoopCondition>
+                        <LoopActions>
+                          <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" LogMessageText="//restart" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1000">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${var:item_t}-1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                        </LoopActions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:item_t}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" ActionType="Placeholder">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:item_t}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:item_t}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="13" LogMessageText="//restart" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1000">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:item_t}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="道具监听" Id="fa48c959-57d9-47f8-ad2d-69cff015a178" RegularExpression="^.{14} ChatLog 00:0[8A]3E::[^:]+获得了“[^:]?((?!(图腾|箱|具|笛|翅|幻卡|乐谱))[^:])+”" Scheduling="FromLastAction">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="item" VariableExpression="0" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:item}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="item" VariableExpression="${var:item}+1" ActionType="Variable" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="04119c9f-84b4-4266-8d8d-54e54732fc5f" Name="开箱" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="false" Name="over" Id="1b42aec2-daf5-45c6-8efb-0905a809eef3" RegularExpression="^.{14} ChatLog 00:0839::将[^:]+放回到了背包中" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="1b42aec2-daf5-45c6-8efb-0905a809eef3" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="box" VariableExpression="0" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="*open" Id="e378b406-f69d-48fe-8e9d-e57433c6a1b7" RegularExpression="//开箱" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:box_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="1500">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" TriggerOp="EnableTrigger" TriggerId="1b42aec2-daf5-45c6-8efb-0905a809eef3" ActionType="Trigger">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" LogMessageText="//交" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3000">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="restart?" Id="a2d75c91-e122-45c1-a2e0-33538b4e4a0f" RegularExpression="//restart">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="3d9d7901-8557-4281-b86c-83a0921491df" ActionType="Trigger" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" LogMessageText="//开箱" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:box}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="7" LogMessageText="//交" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:item}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:box}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="8" LogMessageText="//买" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:ticket}" ExpressionTypeL="Numeric" ExpressionR="${var:threshold}" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:ticket}" ExpressionTypeL="Numeric" ExpressionR="${var:threshold}" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:item}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:box}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="back" Id="80fcc322-6b78-429b-ac95-23d4d7cb0db5" RegularExpression="^.{14} ChatLog 00:0039::进入了休息区">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="//restart" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="2000">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="594c724e-624c-402b-bc42-97b5269470a4" Name="进退本" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="in" Id="252af1e9-f330-44e6-90bb-5627488c7b56" RegularExpression="^.{14} ChatLog 00:0039::[^:]+发送了参加申请。">
+                <Actions>
+                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="500">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="out" Id="1daaa338-8998-424e-8a38-e0ad970aace8" RegularExpression="" PeriodRefire="Deny" RefirePeriodExpression="500">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="duty" Id="c1fcac0b-568f-4dcb-b8cf-4f5eaa535b2c" RegularExpression="//start" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="/前进 &lt;wait.4&gt;&#xD;&#xA;&#xD;/前进 关&#xD;&#xD;&#xA;/最近敌人&#xD;&#xA;&#xD;/焦点目标&#xD;&#xD;&#xA;/ac 强力射击">
+                <Actions>
+                  <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers />
+      </Folder>
+      <Folder Id="4e0ec10a-14fb-4f4c-8ea1-8cdfe03340d0" Name="combat" Enabled="true">
+        <Folders>
+          <Folder Id="9476e00a-511a-41ad-9837-1b47841955a6" Name="#队列夹" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="false" Name="极武_机工" Id="48fab01e-c879-455a-b61a-e73cb457640d" RegularExpression="//constant_enter">
+                <Actions>
+                  <Action OrderNumber="0" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="0" VariableOp="SetString" VariableName="queue_&#xA;&#xA;constant" VariableExpression="整备:空气锚:枪管加热:钻头:弹射:虹吸弹:热分裂弹:弹射:虹吸弹:热独头弹:弹射:虹吸弹:热狙击弹:整备:野火:回转飞锯:后式自走人偶:超荷:热冲击:热冲击:虹吸弹:热冲击:弹射:热冲击:虹吸弹:热冲击:弹射:钻头:弹射:虹吸弹:446_MCH" ActionType="Variable" Description="————双击此处设置————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="1" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" TriggerId="bcc9bed2-603c-46d3-a48c-6bd477fbca87" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="Split" ListVariableName="queue_&#xA;&#xA;constant" ListVariableExpression=":" ListVariableTarget="queue" ActionType="ListVariable" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" TriggerId="190d1eca-511c-4279-9398-b92437c7d3c2" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="ac6b3dbd-b615-4590-bb4b-126364bc360e" ActionType="Folder" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="极武_剑盾" Id="0b0170e7-4e96-4e4b-87ae-8fede70172cf" RegularExpression="//constant_enter">
+                <Actions>
+                  <Action OrderNumber="1" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="1" VariableOp="SetString" VariableName="queue_&#xA;&#xA;constant" VariableExpression="调停:先锋剑:偿赎剑:厄运流转:暴乱剑:王权剑:先锋剑:暴乱剑:战逃反应:安魂祈祷:悔罪:沥血剑:悔罪:悔罪:悔罪:调停:圣灵:赎罪剑:调停:赎罪剑:偿赎剑:厄运流转:赎罪剑:调停:先锋剑:偿赎剑:厄运流转:446_PLD" ActionType="Variable" Description="————双击此处设置————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="1" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" TriggerId="bcc9bed2-603c-46d3-a48c-6bd477fbca87" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Split" ListVariableName="queue_&#xA;&#xA;constant" ListVariableExpression=":" ListVariableTarget="queue" ActionType="ListVariable" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" TriggerId="190d1eca-511c-4279-9398-b92437c7d3c2" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="ac6b3dbd-b615-4590-bb4b-126364bc360e" ActionType="Folder" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="false" Name="#模板" Id="64876043-9c78-4f53-8fb7-a864e237f39d" RegularExpression="//constant_enter">
+                <Actions>
+                  <Action OrderNumber="0" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="0" VariableOp="SetString" VariableName="queue_&#xA;&#xA;constant" VariableExpression="---替换为变量“queue_copy”值---" ActionType="Variable" Description="————双击此处设置————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="1" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" TriggerId="bcc9bed2-603c-46d3-a48c-6bd477fbca87" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="Split" ListVariableName="queue_&#xA;&#xA;constant" ListVariableExpression=":" ListVariableTarget="queue" ActionType="ListVariable" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" TriggerId="190d1eca-511c-4279-9398-b92437c7d3c2" TriggerForce="regexp,conditions" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="ac6b3dbd-b615-4590-bb4b-126364bc360e" ActionType="Folder" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="03e444dd-7acf-4f23-8dca-e37f0bca2859" Name="throw" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="队列不匹配" Id="64aea52e-3e7b-4e51-a998-0deb4ecc791f" RegularExpression="//error_queue_mismatch">
+                <Actions>
+                  <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="2561562e-c8f5-421c-bd86-7572f6991357" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e ///////////////////////////////&lt;se.11&gt;" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e 错误：" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/e 正在使用来自此副本之外的轴！" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/e or" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/e 当前职业非当前轴所属！" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/e ///////////////////////////////" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder Id="b6d857da-06ab-4a34-8e48-cb0977a18109" Name="core" Enabled="true">
+            <Folders>
+              <Folder Id="ac6b3dbd-b615-4590-bb4b-126364bc360e" Name="录入轴" Enabled="false">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="1录入" Id="3a07f95f-d84d-47a1-8bce-786a7c0176f6" RegularExpression="^.{14} (AOE)?ActionEffect 1[56]:.{8}:(?&lt;player&gt;[^:]+?):(([^:]{3,}|(?!(07|08))[^:]{2})):(?&lt;ac_name&gt;[^:]+?):" PeriodRefire="Deny" RefirePeriodExpression="200">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="queue" ListVariableExpression="${ac_name}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="enter_&#xA;&#xA;count" VariableExpression="${var:enter_&#xA;&#xA;count}+1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e 录入${var:enter_&#xA;&#xA;count}.${ac_name}" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="2结束" Id="7ee45cfb-c53d-4a30-8022-5dc7b1ba10a1" RegularExpression="//done">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="queue" ListVariableExpression="${_ffxivzoneid}_${_ffxivparty[${_ffxivplayer}].job}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Join" ListVariableName="queue" ListVariableExpression=":" ListVariableTarget="queue_&#xA;&#xA;copy" ActionType="ListVariable" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" LogMessageText="//enter_done" LogProcess="True" ActionType="LogMessage">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" VariableName="enter_&#xA;&#xA;count" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="3检查" Id="190d1eca-511c-4279-9398-b92437c7d3c2" RegularExpression="//enter_done">
+                    <Actions>
+                      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.12&gt;录入成功：" ActionType="NamedCallback">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" LoopDelayExpression="100" LoopInitExpression="1" ActionType="Loop" ExecutionDelayExpression="100">
+                        <LoopCondition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${lvar:queue.size}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </LoopCondition>
+                        <LoopActions>
+                          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ${_loopiterator}:${lvar:queue[${_loopiterator}]}" ActionType="NamedCallback">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </LoopActions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="6bea6bc1-fb5a-4c07-acbe-d162bfe7d5e7" Name="释放轴" Enabled="false">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="1弹出" Id="aab1f298-3b44-4cd8-99e5-d9318b579181" RegularExpression="^.{14} (AOE)?ActionEffect 1[56]:.{8}:(?&lt;player&gt;[^:]+?):(([^:]{3,}|(?!(07|08))[^:]{2})):(?&lt;ac_name&gt;[^:]+?):">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Name="0释放" Id="548c76d4-e0ae-47a8-b589-bb1a9f4c7cc9" RegularExpression="//attack">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Copy" ListVariableName="queue" ListVariableTarget="timeline" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" ActionType="ListVariable" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/ac ${var:action}" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" LoopDelayExpression="50" ActionType="Loop" ExecutionDelayExpression="1000">
+                        <LoopCondition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:timeline.size}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                        </LoopCondition>
+                        <LoopActions>
+                          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac ${var:action} &lt;le&gt;" ActionType="NamedCallback">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </LoopActions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Name="攻击准备" Id="2561562e-c8f5-421c-bd86-7572f6991357" RegularExpression="//begin">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="//error_queue_mismatch" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="100">
+                    <Condition Enabled="true" Grouping="Not">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:queue[last]}" ExpressionTypeL="String" ExpressionR="${_ffxivzoneid}_${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" FolderId="6bea6bc1-fb5a-4c07-acbe-d162bfe7d5e7" ActionType="Folder">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="ac6b3dbd-b615-4590-bb4b-126364bc360e" ActionType="Folder">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" ActionType="Placeholder" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/systemsounds 0" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="7" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="38" ActionType="WindowMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="38" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/targetenemy" ActionType="NamedCallback" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/lockon on" ActionType="NamedCallback" ExecutionDelayExpression="200">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="11" NamedCallbackName="command" NamedCallbackParam="/automove" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="87" ActionType="NamedCallback" ExecutionDelayExpression="500">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="12" LogMessageText="//attack" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="录入准备" Id="bcc9bed2-603c-46d3-a48c-6bd477fbca87" RegularExpression="//begin">
+                <Actions>
+                  <Action OrderNumber="1" FolderId="ac6b3dbd-b615-4590-bb4b-126364bc360e" ActionType="Folder">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="6bea6bc1-fb5a-4c07-acbe-d162bfe7d5e7" ActionType="Folder">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.5&gt;正在录入————" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Name="off" Id="aaac25ea-3678-41ae-ba15-f3cb4b23bbfd" RegularExpression="//done">
+                <Actions>
+                  <Action OrderNumber="1" FolderOp="DisableFolder" FolderId="ac6b3dbd-b615-4590-bb4b-126364bc360e" ActionType="Folder">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="6bea6bc1-fb5a-4c07-acbe-d162bfe7d5e7" ActionType="Folder">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableName="timeline" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/systemsounds 100" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="clear" Id="9783eebe-5742-4d7e-b1b0-3d7e38a12156" RegularExpression="//clear">
+            <Actions>
+              <Action OrderNumber="1" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" VariableName="queue_&#xA;&#xA;copy" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableName="queue" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableName="timeline" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" VariableName="action" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="c798b2d8-e38d-4984-8d4e-25b66bf86a07" Name="ctrl" Enabled="true">
+        <Folders>
+          <Folder Id="17c15c4f-f9b0-4a61-ac07-be0f14f8740d" Name="switch" Enabled="false">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="done/defeat" Id="dcfaa0d5-923b-4e82-8d96-30c25e087a49" RegularExpression="^.{14} Director 21:.{8}:4000000[35]">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="//done" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Name="begin" Id="11a9910e-6147-4790-acbb-90c30e278c12" RegularExpression="^.{14} Director 21:.{8}:40000001:">
+                <Actions>
+                  <Action OrderNumber="1" LogMessageText="//begin" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="clear" Id="8b5acae2-e465-49a0-8726-8886bc221227" RegularExpression="//clear">
+            <Actions>
+              <Action OrderNumber="1" VariableName="box_key" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" VariableName="boost_key" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" VariableName="threshold" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" VariableName="buy_level" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" VariableName="buy_type" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" VariableName="buy_position" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableName="buy_amount" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" VariableName="item" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" VariableName="item_t" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" VariableName="ticket" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" VariableName="coin" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" VariableName="take" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" VariableName="box" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="14" VariableName="jp_work" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="15" VariableName="clock" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="16" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="17" VariableName="action" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="18" ListVariableName="queue" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="initialize" Id="4c506f90-d1b6-4c8e-9d09-3918fc623f9e" RegularExpression="//初始化">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="//clear" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="17c15c4f-f9b0-4a61-ac07-be0f14f8740d" ActionType="Folder" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e 初始化成功！&lt;se.5&gt;" ActionType="NamedCallback" ExecutionDelayExpression="50">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="restart" Id="3d9d7901-8557-4281-b86c-83a0921491df" RegularExpression="//restart">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="clock" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogMessageText="//start" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="trigger" Id="a7a3279e-8c95-4c50-9c2c-952a44af6809" RegularExpression="//军票">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 开始工作！&lt;se.5&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogMessageText="//clear" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="Placeholder" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" LogMessageText="//constant_enter" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="clock" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" FolderId="17c15c4f-f9b0-4a61-ac07-be0f14f8740d" ActionType="Folder">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="jp_work" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ActionType="Placeholder" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" LogMessageText="//settings" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" LogMessageText="//start" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="clock" Id="6e2fe860-9ff2-461a-8df8-ae78f96bed11" RegularExpression="//军票">
+            <Actions>
+              <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LoopDelayExpression="1000" ActionType="Loop">
+                <LoopCondition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:clock}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </LoopCondition>
+                <LoopActions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="clock" VariableExpression="${var:clock}+1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" LogMessageText="//初始化" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:clock}" ExpressionTypeL="Numeric" ExpressionR="360" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                    </Condition>
+                  </Action>
+                </LoopActions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="settings" Id="8f52a2d9-7db3-4538-9749-1bcdc40935ec" RegularExpression="//settings" EditAutofire="True">
+        <Actions>
+          <Action OrderNumber="1" ActionType="Placeholder">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="box_key" VariableExpression="48" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="boost_key" VariableExpression="57" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" ActionType="Placeholder">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="threshold" VariableExpression="100000" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="buy_level" VariableExpression="1" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="buy_type" VariableExpression="3" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="buy_position" VariableExpression="1" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="buy_amount" VariableExpression="128" ActionType="Variable">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
