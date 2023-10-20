@@ -54,6 +54,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="get out" Id="686a7bf2-f4bb-496a-895f-f55c4e15d5d0" RegularExpression="^.{14} ChatLog 00:083[CE]::([^:]+获得了“(?!九宫幻卡)[^:]+(?&lt;!图腾)”|已持有[^:]+)" PeriodRefire="Deny" RefirePeriodExpression="500">
                 <Actions>
@@ -71,6 +72,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${var:take}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -103,6 +105,7 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Name="2.location" Id="d5a8ea44-0006-4372-84f1-f4d5b83f5deb" RegularExpression="">
                         <Actions>
@@ -194,6 +197,7 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Name="3.set" Id="0421cc2a-1f2f-474b-83d4-5c1ce852ee91" RegularExpression="">
                         <Actions>
@@ -282,6 +286,7 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Name="4.buy" Id="5e307a74-5710-4f12-8231-386af23dc666" RegularExpression="">
                         <Actions>
@@ -326,6 +331,7 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Name="5.return" Id="0a1453b8-65cc-4cac-9501-38aa3230f67f" RegularExpression="">
                         <Actions>
@@ -352,6 +358,7 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Name="3*.set_coin" Id="9eae5945-8baa-4de1-97d0-f2c8c1af805e" RegularExpression="">
                         <Actions>
@@ -478,6 +485,7 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
@@ -518,6 +526,7 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="coin?" Id="9b008c0b-9739-4e96-8f3a-8b16db1d13c0" RegularExpression="//买">
                     <Actions>
@@ -530,6 +539,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${var:buy_position}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:buy_type}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -555,6 +565,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="军票提高" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                         </Condition>
+                        <Conditions />
                       </Trigger>
                       <Trigger Enabled="true" Name="补" Id="fa303502-90cf-4a26-a5aa-0830f975cf16" RegularExpression="//交">
                         <Actions>
@@ -572,6 +583,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${var:buff}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${evar:buff}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
+                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
@@ -644,6 +656,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="道具监听" Id="fa48c959-57d9-47f8-ad2d-69cff015a178" RegularExpression="^.{14} ChatLog 00:0[8A]3E::[^:]+获得了“[^:]?((?!(图腾|箱|具|笛|翅|幻卡|乐谱))[^:])+”" Scheduling="FromLastAction">
                     <Actions>
@@ -659,6 +672,7 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -677,6 +691,7 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="*open" Id="e378b406-f69d-48fe-8e9d-e57433c6a1b7" RegularExpression="//开箱" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
@@ -694,6 +709,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -738,6 +754,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${var:item}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:box}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="back" Id="80fcc322-6b78-429b-ac95-23d4d7cb0db5" RegularExpression="^.{14} ChatLog 00:0039::进入了休息区">
                 <Actions>
@@ -748,6 +765,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -766,6 +784,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:jp_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="out" Id="1daaa338-8998-424e-8a38-e0ad970aace8" RegularExpression="" PeriodRefire="Deny" RefirePeriodExpression="500">
                 <Actions>
@@ -792,6 +811,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="duty" Id="c1fcac0b-568f-4dcb-b8cf-4f5eaa535b2c" RegularExpression="//start" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="/前进 &lt;wait.4&gt;&#xD;&#xA;&#xD;/前进 关&#xD;&#xD;&#xA;/最近敌人&#xD;&#xA;&#xD;/焦点目标&#xD;&#xD;&#xA;/ac 强力射击">
                 <Actions>
@@ -836,6 +856,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -872,6 +893,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="极武_剑盾" Id="0b0170e7-4e96-4e4b-87ae-8fede70172cf" RegularExpression="//constant_enter">
                 <Actions>
@@ -898,6 +920,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
               <Trigger Enabled="false" Name="#模板" Id="64876043-9c78-4f53-8fb7-a864e237f39d" RegularExpression="//constant_enter">
                 <Actions>
@@ -924,6 +947,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -955,6 +979,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -978,6 +1003,7 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="2结束" Id="7ee45cfb-c53d-4a30-8022-5dc7b1ba10a1" RegularExpression="//done">
                     <Actions>
@@ -995,6 +1021,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="3检查" Id="190d1eca-511c-4279-9398-b92437c7d3c2" RegularExpression="//enter_done">
                     <Actions>
@@ -1014,6 +1041,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1029,6 +1057,7 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="0释放" Id="548c76d4-e0ae-47a8-b589-bb1a9f4c7cc9" RegularExpression="//attack">
                     <Actions>
@@ -1054,6 +1083,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1103,6 +1133,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="录入准备" Id="bcc9bed2-603c-46d3-a48c-6bd477fbca87" RegularExpression="//begin">
                 <Actions>
@@ -1119,6 +1150,7 @@
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="off" Id="aaac25ea-3678-41ae-ba15-f3cb4b23bbfd" RegularExpression="//done">
                 <Actions>
@@ -1136,6 +1168,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -1160,6 +1193,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -1175,6 +1209,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="begin" Id="11a9910e-6147-4790-acbb-90c30e278c12" RegularExpression="^.{14} Director 21:.{8}:40000001:">
                 <Actions>
@@ -1183,6 +1218,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -1223,29 +1259,33 @@
               <Action OrderNumber="11" VariableName="coin" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" VariableName="take" ActionType="Variable">
+              <Action OrderNumber="12" VariableName="buff" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="13" VariableName="box" ActionType="Variable">
+              <Action OrderNumber="13" VariableName="take" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="14" VariableName="jp_work" ActionType="Variable">
+              <Action OrderNumber="14" VariableName="box" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="15" VariableName="clock" ActionType="Variable">
+              <Action OrderNumber="15" VariableName="jp_work" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="16" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
+              <Action OrderNumber="16" VariableName="clock" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="17" VariableName="action" ActionType="Variable">
+              <Action OrderNumber="17" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="18" ListVariableName="queue" ActionType="ListVariable">
+              <Action OrderNumber="18" VariableName="action" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="19" ListVariableName="queue" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="initialize" Id="4c506f90-d1b6-4c8e-9d09-3918fc623f9e" RegularExpression="//初始化">
             <Actions>
@@ -1260,6 +1300,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="restart" Id="3d9d7901-8557-4281-b86c-83a0921491df" RegularExpression="//restart">
             <Actions>
@@ -1271,6 +1312,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="trigger" Id="a7a3279e-8c95-4c50-9c2c-952a44af6809" RegularExpression="//军票">
             <Actions>
@@ -1306,6 +1348,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="clock" Id="6e2fe860-9ff2-461a-8df8-ae78f96bed11" RegularExpression="//军票">
             <Actions>
@@ -1330,6 +1373,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -1349,23 +1393,24 @@
           <Action OrderNumber="4" ActionType="Placeholder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="threshold" VariableExpression="100000" ActionType="Variable">
+          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="threshold" VariableExpression="60000" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="buy_level" VariableExpression="1" ActionType="Variable">
+          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="buy_level" VariableExpression="3" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
           <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="buy_type" VariableExpression="3" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="buy_position" VariableExpression="1" ActionType="Variable">
+          <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="buy_position" VariableExpression="-1" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="buy_amount" VariableExpression="128" ActionType="Variable">
+          <Action OrderNumber="9" VariableOp="SetNumeric" VariableName="buy_amount" VariableExpression="3" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
