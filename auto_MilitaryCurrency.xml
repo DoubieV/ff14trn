@@ -326,7 +326,7 @@
                           <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
+                          <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressExpression="NUM0" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300" Asynchronous="False">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
