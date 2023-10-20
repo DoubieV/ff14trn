@@ -679,7 +679,7 @@
               <Folder Id="04119c9f-84b4-4266-8d8d-54e54732fc5f" Name="开箱" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="false" Name="over" Id="1b42aec2-daf5-45c6-8efb-0905a809eef3" RegularExpression="^.{14} ChatLog 00:0839::将[^:]+放回到了背包中" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Name="over" Id="1b42aec2-daf5-45c6-8efb-0905a809eef3" RegularExpression="^.{14} ChatLog 00:0839::将[^:]+放回到了背包中" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
                       <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="1b42aec2-daf5-45c6-8efb-0905a809eef3" ActionType="Trigger">
                         <Condition Enabled="false" Grouping="Or" />
@@ -744,8 +744,12 @@
                     </Condition>
                   </Action>
                   <Action OrderNumber="8" LogMessageText="//买" LogProcess="True" ActionType="LogMessage">
-                    <Condition Enabled="true" Grouping="Or">
+                    <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:ticket}" ExpressionTypeL="Numeric" ExpressionR="${var:threshold}" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${var:item}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        <ConditionSingle Enabled="true" ExpressionL="${var:box}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      </ConditionGroup>
                     </Condition>
                   </Action>
                 </Actions>
