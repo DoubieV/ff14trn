@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="b98de9f4-3c10-4587-ab3c-3fb943db0135" Name="赛鸟demo" Enabled="true">
+  <ExportedFolder Id="2c330819-7516-41aa-8887-3e28efd2ff1a" Name="赛鸟demo" Enabled="true">
     <Folders>
-      <Folder Id="2af54f23-c03b-4e98-9d1f-ff4985ffc78b" Name="进退本" Enabled="true">
+      <Folder Id="ce7d250e-0a8b-4407-8926-922bc908c297" Name="进退本" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Name="in" Id="0175753d-c746-489f-bb2d-a92955e26529" RegularExpression="^.{14} ChatLog 00:0:Matcha#23.9.19.1623#chs-MatchAlert">
+          <Trigger Enabled="true" Name="in" Id="a71d3796-b619-46ea-830a-3e97890e18b0" RegularExpression="^.{14} ChatLog 00:0:Matcha#23.9.19.1623#chs-MatchAlert">
             <Actions>
               <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
@@ -19,7 +19,7 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="out" Id="227b87da-5894-4bb9-9455-eb761d3e8480" RegularExpression="^.{14} ChatLog 00:08BE::(?&lt;player&gt;[^:]+?)获得了[^:]+金碟币" PeriodRefire="Deny" RefirePeriodExpression="500">
+          <Trigger Enabled="true" Name="out" Id="80bfd656-9d8d-4564-95e8-c69e3218f6f3" RegularExpression="^.{14} ChatLog 00:08BE::(?&lt;player&gt;[^:]+?)获得了[^:]+金碟币" PeriodRefire="Deny" RefirePeriodExpression="500">
             <Actions>
               <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="10000">
                 <Condition Enabled="false" Grouping="Or" />
@@ -49,7 +49,7 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="duty" Id="d54a437c-d929-46f0-850d-1b523124e31c" RegularExpression="//start" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="/前进 &lt;wait.4&gt;&#xD;&#xA;&#xD;/前进 关&#xD;&#xD;&#xA;/最近敌人&#xD;&#xA;&#xD;/焦点目标&#xD;&#xD;&#xA;/ac 强力射击">
+          <Trigger Enabled="true" Name="duty" Id="fec33deb-ab95-4d9f-bd23-6e84d358cea9" RegularExpression="//start" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="/前进 &lt;wait.4&gt;&#xD;&#xA;&#xD;/前进 关&#xD;&#xD;&#xA;/最近敌人&#xD;&#xA;&#xD;/焦点目标&#xD;&#xD;&#xA;/ac 强力射击">
             <Actions>
               <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
@@ -98,10 +98,10 @@
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="759c3fc1-0482-4130-9173-4ffdfc8ecd6f" Name="move" Enabled="true">
+      <Folder Id="0de6a58a-17f2-4dd7-9f98-0f16f168ac71" Name="move" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Name="begin" Id="2ad42631-8d67-44cd-8b85-86113dc32020" RegularExpression="^.{14} ChatLog 00:0839::任务中玩家之间可以使用小队频道了">
+          <Trigger Enabled="false" Name="begin" Id="eb701afb-baaf-4086-a474-b353891d9ebf" RegularExpression="^.{14} ChatLog 00:0839::任务中玩家之间可以使用小队频道了">
             <Actions>
               <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="moving" VariableExpression="1" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
@@ -138,7 +138,7 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="over" Id="8ff27e30-6de5-4a06-bb8b-361bcf5b93a2" RegularExpression="^.{14} ChatLog 00:08BE::(?&lt;player&gt;[^:]+?)获得了[^:]+金碟币">
+          <Trigger Enabled="true" Name="over" Id="92b900ee-ccf6-4eb8-9fc2-eb6cf005b29e" RegularExpression="^.{14} ChatLog 00:08BE::(?&lt;player&gt;[^:]+?)获得了[^:]+金碟币">
             <Actions>
               <Action OrderNumber="1" VariableName="moving" VariableExpression="1" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
@@ -159,7 +159,7 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="braking&#xA;" Id="788967b5-4a44-43d1-a118-e504e0c5d29e" RegularExpression="//braking&#xA;">
+          <Trigger Enabled="true" Name="braking&#xA;" Id="2213fc2c-ca8f-4d0d-8735-326b9a6fe868" RegularExpression="//braking&#xA;">
             <Actions>
               <Action OrderNumber="1" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="87" ActionType="WindowMessage" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
@@ -182,7 +182,7 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="false" Name="*begin" Id="e8ed1d31-9e47-4a06-a06a-fc7047619062" RegularExpression="^.{14} ChatLog 00:0839::任务中玩家之间可以使用小队频道了">
+          <Trigger Enabled="false" Name="*begin" Id="1f90114a-21f6-4f60-9e1c-83172dc1585d" RegularExpression="^.{14} ChatLog 00:0839::任务中玩家之间可以使用小队频道了">
             <Actions>
               <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="moving" VariableExpression="1" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
@@ -207,10 +207,10 @@
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="7362de24-cd5b-4f04-af6b-e2749fa9ec8e" Name="ctrl" Enabled="true">
+      <Folder Id="a9b1771e-5d03-4062-96ea-0f29f1039ee3" Name="ctrl" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Name="clear" Id="eb938c84-c978-41ff-bc75-28fec6087fc1" RegularExpression="(//clear|//初始化)">
+          <Trigger Enabled="true" Name="clear" Id="5c61b54a-f76b-4dbe-821d-3a5e0d5e5c31" RegularExpression="(//clear|//初始化)">
             <Actions>
               <Action OrderNumber="1" VariableName="sn_work" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
@@ -219,7 +219,7 @@
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="restart" Id="85120694-5eb9-48f7-9ecf-4f19f7e2dd25" RegularExpression="^.{14} ChatLog 00:0039::进入了休息区">
+          <Trigger Enabled="true" Name="restart" Id="17b75248-7991-42e8-bddc-7a51f7c3097a" RegularExpression="^.{14} ChatLog 00:0039::进入了休息区">
             <Actions>
               <Action OrderNumber="1" LogMessageText="//start" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
@@ -230,7 +230,7 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Name="trigger" Id="2e3a33b7-5c27-4b7d-beb6-a5f6b5c4c902" RegularExpression="//赛鸟">
+          <Trigger Enabled="true" Name="trigger" Id="e80028ec-0245-4076-b250-e59038c2a2f7" RegularExpression="//赛鸟">
             <Actions>
               <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 开始工作！&lt;se.5&gt;" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
