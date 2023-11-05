@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="b98de9f4-3c10-4587-ab3c-3fb943db0135" Name="赛鸟demo" Enabled="true">
+    <Folders>
+      <Folder Id="2af54f23-c03b-4e98-9d1f-ff4985ffc78b" Name="进退本" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="in" Id="0175753d-c746-489f-bb2d-a92955e26529" RegularExpression="^.{14} ChatLog 00:0:Matcha#23.9.19.1623#chs-MatchAlert">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="out" Id="227b87da-5894-4bb9-9455-eb761d3e8480" RegularExpression="^.{14} ChatLog 00:08BE::(?&lt;player&gt;[^:]+?)获得了[^:]+金碟币" PeriodRefire="Deny" RefirePeriodExpression="500">
+            <Actions>
+              <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="10000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="97" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="duty" Id="d54a437c-d929-46f0-850d-1b523124e31c" RegularExpression="//start" PeriodRefire="Deny" RefirePeriodExpression="1000" Description="/前进 &lt;wait.4&gt;&#xD;&#xA;&#xD;/前进 关&#xD;&#xD;&#xA;/最近敌人&#xD;&#xA;&#xD;/焦点目标&#xD;&#xD;&#xA;/ac 强力射击">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="27" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/dutyfinder" OBSEndPoint="" ActionType="NamedCallback" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="104" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="759c3fc1-0482-4130-9173-4ffdfc8ecd6f" Name="move" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="begin" Id="2ad42631-8d67-44cd-8b85-86113dc32020" RegularExpression="^.{14} ChatLog 00:0839::任务中玩家之间可以使用小队频道了">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="moving" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="3000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="87" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" ActionType="Placeholder" ExecutionDelayExpression="20000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" LoopDelayExpression="20000" ActionType="Loop">
+                <LoopCondition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:moving}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </LoopCondition>
+                <LoopActions>
+                  <Action OrderNumber="1" LogMessageText="//braking&#xA;" LogProcess="True" ActionType="LogMessage">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </LoopActions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="over" Id="8ff27e30-6de5-4a06-bb8b-361bcf5b93a2" RegularExpression="^.{14} ChatLog 00:08BE::(?&lt;player&gt;[^:]+?)获得了[^:]+金碟币">
+            <Actions>
+              <Action OrderNumber="1" VariableName="moving" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="87" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="83" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="braking&#xA;" Id="788967b5-4a44-43d1-a118-e504e0c5d29e" RegularExpression="//braking&#xA;">
+            <Actions>
+              <Action OrderNumber="1" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="87" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="83" ActionType="WindowMessage" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="Placeholder" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="83" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="87" ActionType="WindowMessage" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="false" Name="*begin" Id="e8ed1d31-9e47-4a06-a06a-fc7047619062" RegularExpression="^.{14} ChatLog 00:0839::任务中玩家之间可以使用小队频道了">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="moving" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="50" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="256" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" WmsgProcId="${_ffxivprocid}" WmsgTitle="^." WmsgCode="257" WmsgWparam="65" ActionType="WindowMessage" ExecutionDelayExpression="3000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="7362de24-cd5b-4f04-af6b-e2749fa9ec8e" Name="ctrl" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="clear" Id="eb938c84-c978-41ff-bc75-28fec6087fc1" RegularExpression="(//clear|//初始化)">
+            <Actions>
+              <Action OrderNumber="1" VariableName="sn_work" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="restart" Id="85120694-5eb9-48f7-9ecf-4f19f7e2dd25" RegularExpression="^.{14} ChatLog 00:0039::进入了休息区">
+            <Actions>
+              <Action OrderNumber="1" LogMessageText="//start" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="200">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:sn_work}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="trigger" Id="2e3a33b7-5c27-4b7d-beb6-a5f6b5c4c902" RegularExpression="//赛鸟">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 开始工作！&lt;se.5&gt;" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" LogMessageText="//clear" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="Placeholder" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="sn_work" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ActionType="Placeholder" ExecutionDelayExpression="500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" LogMessageText="//start" LogProcess="True" ActionType="LogMessage">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>
