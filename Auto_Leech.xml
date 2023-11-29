@@ -38,6 +38,10 @@
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${evar:name_target}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${name_target}" ExpressionTypeL="String" ExpressionR="${var:name_target}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  </ConditionGroup>
                 </Condition>
               </Trigger>
             </Triggers>
@@ -66,7 +70,7 @@
               </ConditionGroup>
             </Condition>
           </Trigger>
-          <Trigger Enabled="false" Name="mark" Id="a44b1c3d-01fa-4a37-8318-04f7d5a0ce26" RegularExpression="//上盾">
+          <Trigger Enabled="true" Name="mark" Id="a44b1c3d-01fa-4a37-8318-04f7d5a0ce26" RegularExpression="//上盾">
             <Actions>
               <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/mk triangle" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
@@ -86,6 +90,18 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${name_target}" ExpressionTypeL="String" ExpressionR="${var:name_target}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="self" Id="7f35213d-bdb1-4c2e-b850-87d5e7441d95" RegularExpression="//上盾">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac 诊断 &lt;me&gt;" ActionType="NamedCallback" ExecutionDelayExpression="3000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/ac 均衡" ActionType="NamedCallback" ExecutionDelayExpression="2000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
