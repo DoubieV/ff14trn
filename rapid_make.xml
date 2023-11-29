@@ -16,6 +16,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="耐久有了" Id="41a36006-bb79-4480-bcb4-06cba8f49689" RegularExpression="^.{14} ChatLog 00:0839::修理好了[^:]+件道具">
                     <Actions>
@@ -27,6 +28,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -71,6 +73,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -131,6 +134,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="重启" Id="20f636ac-4bfa-4c5a-9d08-a19fc4fe8c9d" RegularExpression="">
             <Actions>
@@ -157,11 +161,12 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="维修" Id="30ad3ca8-e13d-487f-9a33-acb74429bd1e" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100">
-                <Condition Enabled="false" Grouping="And" />
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="49" KeyPressWindow="最终幻想XIV" KeyPressProcId="${_ffxivprocid}" NamedCallbackName="command" NamedCallbackParam="/共通技能 修理" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
@@ -177,6 +182,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -209,6 +215,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="3检查" Id="6eb5a66e-e583-40de-bc32-6710cb23306d" RegularExpression="//录入完毕">
                 <Actions>
@@ -228,6 +235,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="中止" Id="74cca8ed-f44e-4b49-bb13-658595e1e88c" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)(中止了制作作业|制作失败了)">
                 <Actions>
@@ -247,6 +255,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="1录入" Id="debc86f2-f047-4327-bf13-74bf979d87c2" RegularExpression="^.{14} (ChatLog 00:0842::(?&lt;name&gt;[^:]+)发动“(?&lt;ac_name&gt;[^“”]+)”|ActionEffect 15:.{8}:(?&lt;name&gt;[^:]+):[^:]+:(?&lt;ac_name&gt;[^:]+):)">
                 <Actions>
@@ -263,6 +272,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -284,6 +294,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="2执行" Id="c9709f15-8786-4294-b553-680457a36318" RegularExpression="^.{14} (ChatLog 00:0842::(?&lt;name&gt;[^:]+)发动“(?&lt;ac_name&gt;[^“”]+)”|ActionEffect 15:.{8}:(?&lt;name&gt;[^:]+):[^:]+:(?&lt;ac_name&gt;[^:]+):)">
                 <Actions>
@@ -363,6 +374,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
+                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="0开始" Id="7e9604be-0e4c-4410-937d-242f0f791534" RegularExpression="//执行">
                 <Actions>
@@ -401,6 +413,7 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -419,6 +432,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${elvar:制作队列}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -432,6 +446,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Name="解除" Id="978cac40-4971-4e47-b875-172833183c68" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)(制作“(?&lt;ac_name&gt;[^:]+?)”([^:]*)成功|(中止了制作作业|制作失败了))">
             <Actions>
@@ -440,6 +455,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -465,6 +481,7 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -516,8 +533,9 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Name="键位设置——双击详述" Id="4756b276-c4d6-410a-b70a-86b8c994e8e0" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 喝药2 维修3 （大键盘数字）">
+      <Trigger Enabled="true" Name="键位设置——双击详述" Id="4756b276-c4d6-410a-b70a-86b8c994e8e0" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 喝药2 （大键盘数字）">
         <Actions>
           <Action OrderNumber="1" ActionType="Placeholder" Description="右上角点描述查看具体设置↗↗↗↗↗" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
@@ -525,14 +543,12 @@
           <Action OrderNumber="2" VariableOp="SetString" VariableName="食物键位" VariableExpression="49" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" VariableOp="SetString" VariableName="维修键位" VariableExpression="51" ActionType="Variable">
-            <Condition Enabled="false" Grouping="Or" />
-          </Action>
-          <Action OrderNumber="4" VariableOp="SetString" VariableName="喝药键位" VariableExpression="50" ActionType="Variable">
+          <Action OrderNumber="3" VariableOp="SetString" VariableName="喝药键位" VariableExpression="50" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
       <Trigger Enabled="false" Name="启用此触发器来检查目前队列（聊天框查看" Id="5977fecd-e8a4-43e2-aab2-5ff858dd9c99" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
@@ -565,6 +581,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
       <Trigger Enabled="false" Name="启用此触发器以初始化（清除队列）" Id="60ae16ef-b328-4a2c-bbc6-4f565c3df467" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
@@ -612,6 +629,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
       <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="07572afa-f486-4682-a2e9-579ddde05da9" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]+?)”([^:]*)成功" PrevActions="Interrupt">
         <Actions>
@@ -652,6 +670,7 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>
