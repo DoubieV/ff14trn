@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="60d893d6-347f-44b2-bc05-19c025fb2890" Name="自动带人喂水蛭" Enabled="true">
+  <ExportedFolder Id="60d893d6-347f-44b2-bc05-19c025fb2890" Name="自动喂水蛭 v2.0" Enabled="true">
     <Folders>
       <Folder Id="7ba2fa68-675a-4e79-b3e0-fbb6e4029d31" Name="auto" Enabled="true">
         <Folders>
@@ -70,7 +70,7 @@
               </ConditionGroup>
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Name="mark" Id="a44b1c3d-01fa-4a37-8318-04f7d5a0ce26" RegularExpression="//上盾">
+          <Trigger Enabled="false" Name="mark" Id="a44b1c3d-01fa-4a37-8318-04f7d5a0ce26" RegularExpression="//上盾">
             <Actions>
               <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/mk triangle" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
@@ -101,7 +101,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -211,9 +210,66 @@
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
+          <Trigger Enabled="true" Name="test" Id="80b86ff6-9c98-49e2-a38b-62cdb80b3fed" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e test" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="2df9a13a-2abb-4b63-95fc-2d02269ddbcc" Name="check" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="version" Id="53d5dd0b-0019-4d4c-b4c2-8bfae38ff51a" RegularExpression="^@check:name_cn=(?&lt;name_cn&gt;[^:]+):name=(?&lt;name&gt;[^:]+):version=(?&lt;version&gt;[^:]+)$">
+            <Actions>
+              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://gitee.com/doubiev/ff14trn_version/raw/master/version.csv" DiskFileOpVar="version" JsonResultVariable="version" JsonEndpointExpression="F:\FF14\version.json" ActionType="DiskFile">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="5000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" MessageBoxIconType="Information" MessageBoxText="${name_cn}：检测到新版本&quot;${tvarrl:version[${name}][1]}&quot;，当前版本为&quot;${version}&quot;。详参专栏评论区的更新日志" ActionType="MessageBox">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${tvarrl:version[${name}][1]}" ExpressionTypeL="String" ExpressionR="${version}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${etvar:version}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" MessageBoxIconType="Information" MessageBoxText="${name_cn}：错误！获取版本失败！请检查网络以确保连接至gitee" ActionType="MessageBox">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${etvar:version}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="trigger" Id="b1a123f0-8d78-42a6-961f-e3ca4ff299f1" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="53d5dd0b-0019-4d4c-b4c2-8bfae38ff51a" TriggerText="@check:name_cn=自动喂水蛭:name=Auto_Leech:version=2.0" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
         </Triggers>
       </Folder>
     </Folders>
-    <Triggers />
+    <Triggers>
+      <Trigger Enabled="false" Name="*启用此触发器以打开说明专栏" Id="cbe00abb-c6b9-4201-b913-5f9199bf1f6d" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
+        <Actions>
+          <Action OrderNumber="0" TriggerOp="DisableTrigger" TriggerId="cbe00abb-c6b9-4201-b913-5f9199bf1f6d" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" LaunchProcessPathExpression="https://www.bilibili.com/read/cv22343192/" ActionType="LaunchProcess">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
+      </Trigger>
+    </Triggers>
   </ExportedFolder>
 </TriggernometryExport>
