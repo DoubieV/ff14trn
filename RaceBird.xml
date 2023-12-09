@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="2c330819-7516-41aa-8887-3e28efd2ff1a" Name="赛鸟 v1.1" Enabled="true">
+  <ExportedFolder Id="2c330819-7516-41aa-8887-3e28efd2ff1a" Name="赛鸟 v1.1.1" Enabled="true">
     <Folders>
       <Folder Id="ce7d250e-0a8b-4407-8926-922bc908c297" Name="进退本" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Name="in" Id="a71d3796-b619-46ea-830a-3e97890e18b0" RegularExpression="^.{14} ChatLog 00:0:Matcha#23.9.19.1623#chs-MatchAlert">
+          <Trigger Enabled="true" Name="in" Id="a71d3796-b619-46ea-830a-3e97890e18b0" RegularExpression="^.{14} ChatLog 00:0:Matcha#23.12.5.1414#chs-MatchAlert">
             <Actions>
               <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
