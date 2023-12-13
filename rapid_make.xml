@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder Id="785e63bf-760e-4577-b9e1-6b7650871f83" Name="生产无后摇 v2.0" Enabled="true">
+  <ExportedFolder Id="785e63bf-760e-4577-b9e1-6b7650871f83" Name="生产无后摇 v2.1" Enabled="true">
     <Folders>
       <Folder Id="6c36948d-2665-4834-9976-f340c1c20680" Name="repair" Enabled="true">
         <Folders>
@@ -81,43 +81,43 @@
               <Action OrderNumber="1" TriggerId="bd5e99ab-bc6b-4eac-9d99-14f66e2cd190" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="2" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="3" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="5" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="6" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="7" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="8" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="9" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="10" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="11" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="${var:food_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="2000">
+              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="${var:food_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="${var:food_key}" ActionType="NamedCallback" ExecutionDelayExpression="2000">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:food}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:food}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="${var:med_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="${var:med_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="${var:med_key}" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:med}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:med}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -134,19 +134,19 @@
           </Trigger>
           <Trigger Enabled="true" Name="重启" Id="7e30ab11-431c-426b-8f5b-d85c9df23e97" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="100">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/craftinglog" ActionType="NamedCallback" ExecutionDelayExpression="500">
@@ -163,16 +163,16 @@
               <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac 修理" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="102" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="100" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="1000">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
             </Actions>
@@ -398,34 +398,34 @@
               <Action OrderNumber="1" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" ActionType="KeyPress" ExecutionDelayExpression="200">
+              <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -453,6 +453,14 @@
       <Folder Id="b45537f7-4f19-44c8-bebe-078e48dab91b" Name="check" Enabled="true">
         <Folders />
         <Triggers>
+          <Trigger Enabled="true" Name="trigger" Id="8fb048cf-2819-4cc6-a2f3-a1bb919992b6" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
+            <Actions>
+              <Action OrderNumber="1" TriggerId="cc709f74-d528-4fe9-ba9f-648e84c4a9fe" TriggerText="@check:name_cn=生产无后摇:name=rapid_make:version=2.1" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
           <Trigger Enabled="true" Name="version" Id="cc709f74-d528-4fe9-ba9f-648e84c4a9fe" RegularExpression="^@check:name_cn=(?&lt;name_cn&gt;[^:]+):name=(?&lt;name&gt;[^:]+):version=(?&lt;version&gt;[^:]+)$">
             <Actions>
               <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://gitee.com/doubiev/ff14trn_version/raw/master/version.csv" DiskFileOpVar="version" JsonResultVariable="version" JsonEndpointExpression="F:\FF14\version.json" ActionType="DiskFile">
@@ -471,14 +479,6 @@
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${etvar:version}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
-          <Trigger Enabled="true" Name="trigger" Id="8fb048cf-2819-4cc6-a2f3-a1bb919992b6" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
-            <Actions>
-              <Action OrderNumber="1" TriggerId="cc709f74-d528-4fe9-ba9f-648e84c4a9fe" TriggerText="@check:name_cn=生产无后摇:name=rapid_make:version=2.0" ActionType="Trigger">
-                <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
