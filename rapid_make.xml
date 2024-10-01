@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<TriggernometryExport Version="1">
-  <ExportedFolder Id="785e63bf-760e-4577-b9e1-6b7650871f83" Name="生产无后摇 v2.1" Enabled="true">
+<TriggernometryExport PluginVersion="1.2.0.6">
+  <ExportedFolder Id="785e63bf-760e-4577-b9e1-6b7650871f83" Name="生产无后摇 v2.2" Enabled="true">
     <Folders>
       <Folder Id="6c36948d-2665-4834-9976-f340c1c20680" Name="repair" Enabled="true">
         <Folders>
-          <Folder Id="bba2b838-c584-4fc9-855e-b8a70261f7e6" Name="监听" Enabled="false">
+          <Folder Id="bba2b838-c584-4fc9-855e-b8a70261f7e6" Name="监听" Enabled="true">
             <Folders>
               <Folder Id="58cf9a36-e809-41a2-8709-115d35c320c2" Name="耐久" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="耐久没了" Id="95477fe6-185e-47bd-a08a-d904a3483cb0" RegularExpression="的耐久度已降到">
                     <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="durability" VariableExpression="0" ActionType="Variable">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="durability" VariableExpression="0" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -19,10 +19,10 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="耐久有了" Id="57e0d34e-9cd3-40e2-8528-6126013d6cef" RegularExpression="^.{14} ChatLog 00:0839::修理好了[^:]+件道具">
                     <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="durability" VariableExpression="1" ActionType="Variable">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="durability" VariableExpression="1" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" TriggerId="7e30ab11-431c-426b-8f5b-d85c9df23e97" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerId="7e30ab11-431c-426b-8f5b-d85c9df23e97" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -34,31 +34,31 @@
             <Triggers>
               <Trigger Enabled="true" Name="食物和药" Id="a6802cb2-626b-442b-951f-c7b6d1bc4cb3" RegularExpression="^.{14} Status(Add|Remove) 1(?&lt;effect&gt;A|E):[^:]+:(?&lt;buff&gt;[^:]+?):(?&lt;duration&gt;[^:]+?):.{8}:(?&lt;name&gt;[^:]+?):">
                 <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="food" VariableExpression="0" ActionType="Variable">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="food" VariableExpression="0" ActionType="Variable">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                       <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="进食" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="med" VariableExpression="0" ActionType="Variable">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="med" VariableExpression="0" ActionType="Variable">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="E" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                       <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="强化药" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="food" VariableExpression="1" ActionType="Variable">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="food" VariableExpression="1" ActionType="Variable">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                       <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="进食" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="med" VariableExpression="1" ActionType="Variable">
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="med" VariableExpression="1" ActionType="Variable">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                       <ConditionSingle Enabled="true" ExpressionL="${buff}" ExpressionTypeL="String" ExpressionR="强化药" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" TriggerId="7e30ab11-431c-426b-8f5b-d85c9df23e97" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerId="7e30ab11-431c-426b-8f5b-d85c9df23e97" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${effect}" ExpressionTypeL="String" ExpressionR="A" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                       <ConditionGroup Enabled="true" Grouping="Or">
@@ -78,52 +78,52 @@
         <Triggers>
           <Trigger Enabled="true" Name="补" Id="8d3e6382-13a8-4a90-a43b-7ad766952689" RegularExpression="//补状态">
             <Actions>
-              <Action OrderNumber="1" TriggerId="bd5e99ab-bc6b-4eac-9d99-14f66e2cd190" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="bd5e99ab-bc6b-4eac-9d99-14f66e2cd190" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="2" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="3" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="5" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="6" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="7" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="8" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="9" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="10" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="11" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="${var:food_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="${var:food_key}" ActionType="NamedCallback" ExecutionDelayExpression="2000">
+              <Action OrderNumber="12" KeypressType="WindowMessage" KeyPressCode="${var:food_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="${var:food_key}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="2000">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:food}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:food}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="${var:med_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="${var:med_key}" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="13" KeypressType="WindowMessage" KeyPressCode="${var:med_key}" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="${var:med_key}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:med}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:med}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="14" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" TriggerId="b15de5c9-a2c5-4d08-9dca-4a1237d78032" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
+              <Action OrderNumber="14" KeypressType="WindowMessage" KeyPressCode="${var:维修键位}" KeyPressWindow="最终幻想XIV" SoundRouting="None" TTSRouting="None" TriggerId="b15de5c9-a2c5-4d08-9dca-4a1237d78032" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="100">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:durability}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${evar:durability}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -134,25 +134,25 @@
           </Trigger>
           <Trigger Enabled="true" Name="重启" Id="7e30ab11-431c-426b-8f5b-d85c9df23e97" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" ActionType="NamedCallback" ExecutionDelayExpression="100">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="110" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="110" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/craftinglog" ActionType="NamedCallback" ExecutionDelayExpression="500">
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/craftinglog" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="500">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" TriggerId="c8c05da5-e01b-4ceb-a234-12818e224ef0" TriggerForce="regexp" ActionType="Trigger">
+              <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerId="c8c05da5-e01b-4ceb-a234-12818e224ef0" TriggerForce="regexp" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -160,19 +160,19 @@
           </Trigger>
           <Trigger Enabled="true" Name="维修" Id="b15de5c9-a2c5-4d08-9dca-4a1237d78032" RegularExpression="">
             <Actions>
-              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac 修理" ActionType="NamedCallback">
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac 修理" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="102" ActionType="NamedCallback" ExecutionDelayExpression="1000">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="102" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="102" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="1000">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="100" ActionType="NamedCallback" ExecutionDelayExpression="1000">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="100" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="100" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="1000">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="1000">
                 <Condition Enabled="false" Grouping="And" />
               </Action>
             </Actions>
@@ -183,27 +183,27 @@
       <Folder Id="b3b2c325-a797-498e-9bf1-4203ddf50cac" Name="#队列夹" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="false" Name="#模板" Id="44d38a11-35da-4652-a9ef-886047b4045b" RegularExpression="//constant_enter">
+          <Trigger Enabled="false" Name="#模板" Id="c623e390-6b7d-413e-b78c-ca98e9452ffc" RegularExpression="//constant_enter">
             <Actions>
-              <Action OrderNumber="0" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+              <Action OrderNumber="0" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="0" VariableOp="SetString" VariableName="queue_&#xA;&#xA;constant" VariableExpression="---替换为变量“queue_copy”值---" ActionType="Variable" Description="————双击此处设置————" DescriptionOverride="True">
+              <Action OrderNumber="0" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="queue_&#xA;&#xA;constant" VariableExpression="---替换为变量“queue_copy”值---" ActionType="Variable" Description="————双击此处设置————" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="1" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" Description="————————" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" TriggerId="ed56d828-dba7-4e37-ad1e-663659f6bfdb" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerId="ed56d828-dba7-4e37-ad1e-663659f6bfdb" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" ListVariableOp="Split" ListVariableName="queue_&#xA;&#xA;constant" ListVariableExpression=":" ListVariableTarget="queue" ActionType="ListVariable" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" ListVariableOp="Split" ListVariableName="queue_&#xA;&#xA;constant" ListVariableExpression=":" ListVariableTarget="queue" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" TriggerId="43d9ea7f-cfa4-4113-8661-3787b310f22c" TriggerForce="regexp,conditions" ActionType="Trigger">
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerId="43d9ea7f-cfa4-4113-8661-3787b310f22c" TriggerForce="regexp,conditions" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" ActionType="Folder" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" SoundRouting="None" TTSRouting="None" ActionType="Folder" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -216,15 +216,15 @@
           <Folder Id="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" Name="录入轴" Enabled="false">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="1录入" Id="48bea6e7-c0f9-4675-912f-1edb045a9fb3" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;player&gt;[^:]+)(?&lt;=[^发动|的])(发动(?=“)|的(?=[^祝福|神]))(“?)(?&lt;ac_name&gt;[^“”]+)(”?)\s+⇒\s+成功" PeriodRefire="Deny" RefirePeriodExpression="200">
+              <Trigger Enabled="true" Name="1录入" Id="48bea6e7-c0f9-4675-912f-1edb045a9fb3" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;player&gt;[^:]+)(?&lt;=[^发动|的])(发动(?=“)|的(?=[^祝福|神|绝]))(“?)(?&lt;ac_name&gt;[^“”]+)(”?)\s+⇒\s+成功" PeriodRefire="Deny" RefirePeriodExpression="200">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="queue" ListVariableExpression="${ac_name}" ActionType="ListVariable">
+                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="queue" ListVariableExpression="${ac_name}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="enter_&#xA;&#xA;count" VariableExpression="${var:enter_&#xA;&#xA;count}+1" ActionType="Variable">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="enter_&#xA;&#xA;count" VariableExpression="${var:enter_&#xA;&#xA;count}+1" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e 录入${var:enter_&#xA;&#xA;count}.${ac_name}" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e 录入${var:enter_&#xA;&#xA;count}.${ac_name}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -234,13 +234,13 @@
               </Trigger>
               <Trigger Enabled="true" Name="2结束" Id="82082481-09c7-4715-a7fb-156406d4c995" RegularExpression="//done">
                 <Actions>
-                  <Action OrderNumber="1" LogMessageText="//enter_done" LogProcess="True" TriggerId="43d9ea7f-cfa4-4113-8661-3787b310f22c" TriggerText="//enter_done" ActionType="Trigger">
+                  <Action OrderNumber="1" LogMessageText="//enter_done" LogProcess="True" SoundRouting="None" TTSRouting="None" TriggerId="43d9ea7f-cfa4-4113-8661-3787b310f22c" TriggerText="//enter_done" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" ListVariableOp="Join" ListVariableName="queue" ListVariableExpression=":" ListVariableTarget="queue_&#xA;&#xA;copy" ActionType="ListVariable" ExecutionDelayExpression="100">
+                  <Action OrderNumber="2" ListVariableOp="Join" ListVariableName="queue" ListVariableExpression=":" ListVariableTarget="queue_&#xA;&#xA;copy" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" VariableName="enter_&#xA;&#xA;count" ActionType="Variable">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="enter_&#xA;&#xA;count" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -248,15 +248,15 @@
               </Trigger>
               <Trigger Enabled="true" Name="3检查" Id="43d9ea7f-cfa4-4113-8661-3787b310f22c" RegularExpression="//enter_done">
                 <Actions>
-                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.12&gt;录入成功：" ActionType="NamedCallback">
+                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.12&gt;录入成功：" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" LoopDelayExpression="100" LoopInitExpression="1" ActionType="Loop" ExecutionDelayExpression="100">
+                  <Action OrderNumber="2" LoopDelayExpression="100" LoopInitExpression="1" SoundRouting="None" TTSRouting="None" ActionType="Loop" ExecutionDelayExpression="100">
                     <LoopCondition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${lvar:queue.size}+1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </LoopCondition>
                     <LoopActions>
-                      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ${_loopiterator}:${lvar:queue[${_loopiterator}]}" ActionType="NamedCallback">
+                      <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ${_loopiterator}:${lvar:queue[${_loopiterator}]}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </LoopActions>
@@ -267,7 +267,7 @@
               </Trigger>
               <Trigger Enabled="true" Name="abort" Id="0b006441-e250-47da-8eb3-e58b76007d6d" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)(中止了制作作业|制作失败了)">
                 <Actions>
-                  <Action OrderNumber="1" LogMessageText="//abort" LogProcess="True" ActionType="LogMessage">
+                  <Action OrderNumber="1" LogMessageText="//abort" LogProcess="True" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -278,12 +278,12 @@
           <Folder Id="a6428741-e59e-457b-af81-8a18fc617928" Name="释放轴" Enabled="false">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="1弹出" Id="d2eac10f-665a-4e70-9371-4fbce6f660b0" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;player&gt;[^:]+)(?&lt;=[^发动|的])(发动(?=“)|的(?=[^祝福|神]))(“?)(?&lt;ac_name&gt;[^“”]+)(”?)\s+⇒\s+成功">
+              <Trigger Enabled="true" Name="1弹出" Id="d2eac10f-665a-4e70-9371-4fbce6f660b0" RegularExpression="^.{14} ChatLog 00:0842::(?&lt;player&gt;[^:]+)(?&lt;=[^发动|的])(发动(?=“)|的(?=[^祝福|神|绝]))(“?)(?&lt;ac_name&gt;[^“”]+)(”?)\s+⇒\s+成功">
                 <Actions>
-                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac ${var:action}" ActionType="NamedCallback">
+                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/ac ${var:action}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" ActionType="ListVariable" ExecutionDelayExpression="100">
+                  <Action OrderNumber="2" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${lvar:timeline.size}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
@@ -295,16 +295,16 @@
               </Trigger>
               <Trigger Enabled="true" Name="0释放" Id="f203ba0a-9203-41ab-95db-5bd5b2f6c2f8" RegularExpression="//release">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Copy" ListVariableName="queue" ListVariableTarget="timeline" ActionType="ListVariable">
+                  <Action OrderNumber="1" ListVariableOp="Copy" ListVariableName="queue" ListVariableTarget="timeline" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" ActionType="ListVariable" ExecutionDelayExpression="100">
+                  <Action OrderNumber="2" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/ac ${var:action}" ActionType="NamedCallback" ExecutionDelayExpression="100">
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/ac ${var:action}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" ActionType="ListVariable" ExecutionDelayExpression="100">
+                  <Action OrderNumber="4" ListVariableOp="PopFirst" ListVariableName="timeline" ListVariableTarget="action" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" ExecutionDelayExpression="100">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -317,7 +317,7 @@
             <Triggers>
               <Trigger Enabled="true" Name="done" Id="ff21b6b0-0ebb-4bfe-8ef5-01409c739a21" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)制作“(?&lt;ac_name&gt;[^:]*?)”([^:]*)成功">
                 <Actions>
-                  <Action OrderNumber="1" LogMessageText="//done" LogProcess="True" ActionType="LogMessage">
+                  <Action OrderNumber="1" LogMessageText="//done" LogProcess="True" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -325,7 +325,7 @@
               </Trigger>
               <Trigger Enabled="true" Name="begin" Id="93bb393c-e343-4ae2-9639-d62960aafe83" RegularExpression="^.{14} ChatLog 00:08(42|C2)::(?&lt;name&gt;[^:]+?)开始制作“(?&lt;ac_name&gt;[^:]*?)”">
                 <Actions>
-                  <Action OrderNumber="1" LogMessageText="//begin" LogProcess="True" ActionType="LogMessage">
+                  <Action OrderNumber="1" LogMessageText="//begin" LogProcess="True" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -337,19 +337,19 @@
         <Triggers>
           <Trigger Enabled="true" Name="释放准备" Id="13c9b300-ea7d-4fe1-bdc7-7b42a74ea48c" RegularExpression="//begin">
             <Actions>
-              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="15df86f2-0eec-4c24-a27b-aa3cdaea733f" ActionType="Trigger">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="15df86f2-0eec-4c24-a27b-aa3cdaea733f" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" FolderId="a6428741-e59e-457b-af81-8a18fc617928" ActionType="Folder">
+              <Action OrderNumber="2" FolderId="a6428741-e59e-457b-af81-8a18fc617928" SoundRouting="None" TTSRouting="None" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" ActionType="Folder">
+              <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" SoundRouting="None" TTSRouting="None" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" ActionType="Placeholder" ExecutionDelayExpression="100">
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" LogMessageText="//release" LogProcess="True" ActionType="LogMessage">
+              <Action OrderNumber="5" LogMessageText="//release" LogProcess="True" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -359,13 +359,13 @@
           </Trigger>
           <Trigger Enabled="true" Name="录入准备" Id="ed56d828-dba7-4e37-ad1e-663659f6bfdb" RegularExpression="//begin">
             <Actions>
-              <Action OrderNumber="1" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" ActionType="Folder">
+              <Action OrderNumber="1" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" SoundRouting="None" TTSRouting="None" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="a6428741-e59e-457b-af81-8a18fc617928" ActionType="Folder">
+              <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="a6428741-e59e-457b-af81-8a18fc617928" SoundRouting="None" TTSRouting="None" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.5&gt;正在录入————" ActionType="NamedCallback">
+              <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.5&gt;正在录入————" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -373,59 +373,39 @@
               <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Name="录入中止" Id="78e05794-128f-4868-85b3-7b0d37e17f5a" RegularExpression="//abort">
-            <Actions>
-              <Action OrderNumber="1" ListVariableName="queue" ActionType="ListVariable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="2" VariableName="enter_&#xA;&#xA;count" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" ActionType="Folder">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="a6428741-e59e-457b-af81-8a18fc617928" ActionType="Folder">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.9&gt;中止录入————" ActionType="NamedCallback">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
           <Trigger Enabled="true" Name="restart" Id="15df86f2-0eec-4c24-a27b-aa3cdaea733f" RegularExpression="//restart">
             <Actions>
-              <Action OrderNumber="1" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" ActionType="Folder">
+              <Action OrderNumber="1" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" SoundRouting="None" TTSRouting="None" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" ActionType="NamedCallback" ExecutionDelayExpression="200">
+              <Action OrderNumber="11" KeypressType="WindowMessage" KeyPressCode="96" KeyPressWindow="^." KeyPressProcId="${_ffxivprocid}" NamedCallbackName="sendkey" NamedCallbackParam="96" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="200">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -433,16 +413,36 @@
           </Trigger>
           <Trigger Enabled="true" Name="off" Id="5d4080d8-ed6d-46d4-b9a1-0bf444a0bd00" RegularExpression="//done">
             <Actions>
-              <Action OrderNumber="1" ListVariableName="timeline" ActionType="ListVariable">
+              <Action OrderNumber="1" ListVariableName="timeline" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="100">
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" ActionType="Folder">
+              <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" SoundRouting="None" TTSRouting="None" ActionType="Folder">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="a6428741-e59e-457b-af81-8a18fc617928" ActionType="Folder">
+              <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="a6428741-e59e-457b-af81-8a18fc617928" SoundRouting="None" TTSRouting="None" ActionType="Folder">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="录入中止" Id="78e05794-128f-4868-85b3-7b0d37e17f5a" RegularExpression="//abort">
+            <Actions>
+              <Action OrderNumber="1" ListVariableName="queue" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="enter_&#xA;&#xA;count" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" FolderOp="DisableFolder" FolderId="9dd94acd-fb1f-42f7-8ca9-ba87a7bcaa01" SoundRouting="None" TTSRouting="None" ActionType="Folder">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" FolderOp="DisableFolder" FolderId="a6428741-e59e-457b-af81-8a18fc617928" SoundRouting="None" TTSRouting="None" ActionType="Folder">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.9&gt;中止录入————" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -455,7 +455,7 @@
         <Triggers>
           <Trigger Enabled="true" Name="trigger" Id="8fb048cf-2819-4cc6-a2f3-a1bb919992b6" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="86400000">
             <Actions>
-              <Action OrderNumber="1" TriggerId="cc709f74-d528-4fe9-ba9f-648e84c4a9fe" TriggerText="@check:name_cn=生产无后摇:name=rapid_make:version=2.1" ActionType="Trigger">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="cc709f74-d528-4fe9-ba9f-648e84c4a9fe" TriggerText="@check:name_cn=生产无后摇:name=rapid_make:version=2.2" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -463,19 +463,19 @@
           </Trigger>
           <Trigger Enabled="true" Name="version" Id="cc709f74-d528-4fe9-ba9f-648e84c4a9fe" RegularExpression="^@check:name_cn=(?&lt;name_cn&gt;[^:]+):name=(?&lt;name&gt;[^:]+):version=(?&lt;version&gt;[^:]+)$">
             <Actions>
-              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://gitee.com/doubiev/ff14trn_version/raw/master/version.csv" DiskFileOpVar="version" JsonResultVariable="version" JsonEndpointExpression="F:\FF14\version.json" ActionType="DiskFile">
+              <Action OrderNumber="1" DiskFileOp="ReadCSVIntoTableVariable" DiskFileOpName="https://gitee.com/doubiev/ff14trn_version/raw/master/version.csv" DiskFileOpVar="version" JsonResultVariable="version" JsonEndpointExpression="F:\FF14\version.json" SoundRouting="None" TTSRouting="None" ActionType="DiskFile">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="5000">
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="5000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" MessageBoxIconType="Information" MessageBoxText="${name_cn}：检测到新版本&quot;${tvarrl:version[${name}][1]}&quot;，当前版本为&quot;${version}&quot;。详参专栏评论区的更新日志" ActionType="MessageBox">
+              <Action OrderNumber="3" MessageBoxIconType="Information" MessageBoxText="${name_cn}：检测到新版本&quot;${tvarrl:version[${name}][1]}&quot;，当前版本为&quot;${version}&quot;。详参专栏评论区的更新日志" SoundRouting="None" TTSRouting="None" ActionType="MessageBox">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${tvarrl:version[${name}][1]}" ExpressionTypeL="String" ExpressionR="${version}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
                   <ConditionSingle Enabled="true" ExpressionL="${etvar:version}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="4" MessageBoxIconType="Information" MessageBoxText="${name_cn}：错误！获取版本失败！请检查网络以确保连接至gitee" ActionType="MessageBox">
+              <Action OrderNumber="4" MessageBoxIconType="Information" MessageBoxText="${name_cn}：错误！获取版本失败！请检查网络以确保连接至gitee" SoundRouting="None" TTSRouting="None" ActionType="MessageBox">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${etvar:version}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
@@ -489,43 +489,43 @@
     <Triggers>
       <Trigger Enabled="false" Name="启用此触发器以使用队列夹导入队列" Id="6a8d72b3-aa38-474c-bcab-7c9eb1d985f7" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="6a8d72b3-aa38-474c-bcab-7c9eb1d985f7" ActionType="Trigger">
+          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="6a8d72b3-aa38-474c-bcab-7c9eb1d985f7" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" TriggerOp="DisableTrigger" ActionType="Folder">
+          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
+          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" VariableName="queue_&#xA;&#xA;copy" ActionType="Variable">
+          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="queue_&#xA;&#xA;copy" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" ListVariableName="queue" ActionType="ListVariable">
+          <Action OrderNumber="5" ListVariableName="queue" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="6" ListVariableName="timeline" ActionType="ListVariable">
+          <Action OrderNumber="6" ListVariableName="timeline" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="7" VariableName="action" ActionType="Variable">
+          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableName="action" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="8" VariableName="food_key" ActionType="Variable">
+          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableName="food_key" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="9" VariableName="med_key" ActionType="Variable">
+          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableName="med_key" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="10" VariableName="food" ActionType="Variable">
+          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableName="food" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="11" VariableName="med" ActionType="Variable">
+          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" VariableName="med" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="12" VariableName="durability" ActionType="Variable">
+          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableName="durability" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="13" LogMessageText="//constant_enter" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1000">
+          <Action OrderNumber="13" LogMessageText="//constant_enter" LogProcess="True" SoundRouting="None" TTSRouting="None" ActionType="LogMessage" ExecutionDelayExpression="1000">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
@@ -533,13 +533,13 @@
       </Trigger>
       <Trigger Enabled="true" Name="键位设置" Id="bd5e99ab-bc6b-4eac-9d99-14f66e2cd190" RegularExpression="" Description="在↑“触发器动作”双击对应板块，修改其中“表达”的值即可完成设置&#xD;&#xA;&#xD;&#xA;food_key = 食物键位&#xD;&#xA;med_key = 药键位&#xD;&#xA;&#xD;&#xA;按键对应数字详见下方链接↓&#xD;&#xA;&#xD;&#xA;https://gitee.com/doubiev/keycode-table&#xD;&#xA;&#xD;&#xA;默认：食物1 药2（大键盘数字）">
         <Actions>
-          <Action OrderNumber="1" ActionType="Placeholder" Description="右上角点描述查看具体设置↗↗↗↗↗" DescriptionOverride="True">
+          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" Description="右上角点描述查看具体设置↗↗↗↗↗" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" VariableOp="SetString" VariableName="food_key" VariableExpression="49" ActionType="Variable">
+          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="food_key" VariableExpression="49" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" VariableOp="SetString" VariableName="med_key" VariableExpression="50" ActionType="Variable">
+          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="med_key" VariableExpression="50" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
@@ -547,29 +547,29 @@
       </Trigger>
       <Trigger Enabled="false" Name="启用此触发器来检查目前队列" Id="a954f735-2a1a-47d0-89b8-6fad1e6a8ac3" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="0" TriggerOp="DisableTrigger" TriggerId="a954f735-2a1a-47d0-89b8-6fad1e6a8ac3" ActionType="Trigger">
+          <Action OrderNumber="0" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="a954f735-2a1a-47d0-89b8-6fad1e6a8ac3" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ///////////////////////////////" ActionType="NamedCallback" ExecutionDelayExpression="100">
+          <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ///////////////////////////////" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.12&gt;当前队列：" ActionType="NamedCallback" ExecutionDelayExpression="100">
+          <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.12&gt;当前队列：" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Action>
-          <Action OrderNumber="4" LoopDelayExpression="100" LoopInitExpression="1" ActionType="Loop" ExecutionDelayExpression="100">
+          <Action OrderNumber="4" LoopDelayExpression="100" LoopInitExpression="1" SoundRouting="None" TTSRouting="None" ActionType="Loop" ExecutionDelayExpression="100">
             <LoopCondition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_loopiterator}" ExpressionTypeL="Numeric" ExpressionR="${lvar:queue.size}+1" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
             </LoopCondition>
             <LoopActions>
-              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ${_loopiterator}:${lvar:queue[${_loopiterator}]}" ActionType="NamedCallback">
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e ${_loopiterator}:${lvar:queue[${_loopiterator}]}" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </LoopActions>
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.11&gt;错误：尚未获取队列" ActionType="NamedCallback" ExecutionDelayExpression="100">
+          <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/e &lt;se.11&gt;错误：尚未获取队列" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${elvar:queue}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
@@ -579,43 +579,43 @@
       </Trigger>
       <Trigger Enabled="false" Name="启用此触发器以初始化" Id="fb7eb007-c442-451d-b9de-2f5c8e413648" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="1" TriggerOp="DisableTrigger" TriggerId="fb7eb007-c442-451d-b9de-2f5c8e413648" ActionType="Trigger">
+          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="fb7eb007-c442-451d-b9de-2f5c8e413648" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" TriggerOp="DisableTrigger" ActionType="Folder">
+          <Action OrderNumber="2" FolderOp="DisableFolder" FolderId="bba2b838-c584-4fc9-855e-b8a70261f7e6" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" ActionType="Folder">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
+          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="queue_&#xA;&#xA;constant" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" VariableName="queue_&#xA;&#xA;copy" ActionType="Variable">
+          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="queue_&#xA;&#xA;copy" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" ListVariableName="queue" ActionType="ListVariable">
+          <Action OrderNumber="5" ListVariableName="queue" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="6" ListVariableName="timeline" ActionType="ListVariable">
+          <Action OrderNumber="6" ListVariableName="timeline" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="7" VariableName="action" ActionType="Variable">
+          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableName="action" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="8" VariableName="food_key" ActionType="Variable">
+          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableName="food_key" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="9" VariableName="med_key" ActionType="Variable">
+          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableName="med_key" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="10" VariableName="food" ActionType="Variable">
+          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableName="food" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="11" VariableName="med" ActionType="Variable">
+          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" VariableName="med" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="12" VariableName="durability" ActionType="Variable">
+          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableName="durability" ActionType="Variable">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="13" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.3&gt;初始化完成————" ActionType="NamedCallback" ExecutionDelayExpression="100">
+          <Action OrderNumber="13" NamedCallbackName="command" NamedCallbackParam="/e ————&lt;se.3&gt;初始化完成————" SoundRouting="None" TTSRouting="None" ActionType="NamedCallback" ExecutionDelayExpression="100">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
@@ -623,10 +623,10 @@
       </Trigger>
       <Trigger Enabled="false" Sequential="True" Name="auto循环" Id="c8c05da5-e01b-4ceb-a234-12818e224ef0" RegularExpression="//done" PrevActions="Interrupt">
         <Actions>
-          <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="2500">
+          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="2500">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" LogMessageText="//补状态" LogProcess="True" TriggerId="8d3e6382-13a8-4a90-a43b-7ad766952689" TriggerForce="regexp" ActionType="LogMessage">
+          <Action OrderNumber="2" LogMessageText="//补状态" LogProcess="True" SoundRouting="None" TTSRouting="None" TriggerId="8d3e6382-13a8-4a90-a43b-7ad766952689" TriggerForce="regexp" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Or">
               <ConditionGroup Enabled="true" Grouping="And">
                 <ConditionSingle Enabled="true" ExpressionL="${var:med}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -642,7 +642,7 @@
               </ConditionGroup>
             </Condition>
           </Action>
-          <Action OrderNumber="3" LogMessageText="//restart" LogProcess="True" TriggerId="8d3e6382-13a8-4a90-a43b-7ad766952689" TriggerForce="regexp" ActionType="LogMessage">
+          <Action OrderNumber="3" LogMessageText="//restart" LogProcess="True" SoundRouting="None" TTSRouting="None" TriggerId="8d3e6382-13a8-4a90-a43b-7ad766952689" TriggerForce="regexp" ActionType="LogMessage">
             <Condition Enabled="true" Grouping="Not">
               <ConditionGroup Enabled="true" Grouping="And">
                 <ConditionSingle Enabled="true" ExpressionL="${var:med}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -663,10 +663,10 @@
       </Trigger>
       <Trigger Enabled="false" Name="*启用此触发器以打开说明专栏" Id="70092470-fc26-40f0-9023-5e97f6ab58e3" RegularExpression="^." PeriodRefire="Deny" RefirePeriodExpression="1000">
         <Actions>
-          <Action OrderNumber="0" TriggerOp="DisableTrigger" TriggerId="70092470-fc26-40f0-9023-5e97f6ab58e3" ActionType="Trigger">
+          <Action OrderNumber="0" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="70092470-fc26-40f0-9023-5e97f6ab58e3" ActionType="Trigger">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="2" LaunchProcessPathExpression="https://www.bilibili.com/read/cv22342490/" ActionType="LaunchProcess">
+          <Action OrderNumber="2" LaunchProcessPathExpression="https://www.bilibili.com/read/cv22342490/" SoundRouting="None" TTSRouting="None" ActionType="LaunchProcess">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>
